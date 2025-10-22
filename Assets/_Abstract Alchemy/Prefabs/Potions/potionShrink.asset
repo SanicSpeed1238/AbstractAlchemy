@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87f9c6e2fa1160468557f2be64c8844, type: 3}
+  m_Name: potionShrink
+  m_EditorClassIdentifier: 
+  currentEffect: 1
+  potionFX: {fileID: 5183528292059555011, guid: 38a8e94cb42ff724fb4e2b5fd21ca679,
+    type: 3}
+  breakFX: {fileID: 955685499723473565, guid: 8368466ebff4aad49bef0a774bd4a7ec, type: 3}
