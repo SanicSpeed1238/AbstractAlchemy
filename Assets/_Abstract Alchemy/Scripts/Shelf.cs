@@ -6,24 +6,22 @@ public class Shelf : MonoBehaviour
 {
     public static Shelf currentShelf;
     public bool isCurrentShelf { get { return currentShelf == this; } }
+    [Tooltip("Set this to true if it is the shelf closest to the player's starting location. No more than one shelf in the scene should have this value set to true.")]
     public bool defaultToCurrentShelf;
 
-    public static List<GameObject> objectsInShelf = new();
+    public static List<ShelfTarget> objectsInShelf = new();
 
-    private bool shelfChanging;
-
-    private void Awake()
-    {
-        if (defaultToCurrentShelf)
-        {
-            SetActiveShelf();
-        }
-    }
+    private static bool shelfChanging;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (defaultToCurrentShelf)
+        {
+            objectsInShelf.Clear();
+            currentShelf = null;
+            SetActiveShelf();
+        }
     }
 
     // Update is called once per frame
@@ -32,41 +30,59 @@ public class Shelf : MonoBehaviour
         
     }
 
+    [Tooltip("Sets this shelf to be the active shelf. Use this when teleporting to a spot that's within reach of this shelf. Only one shelf can be set to the active shelf.")]
     public void SetActiveShelf()
     {
         if (isCurrentShelf) { return; }
         shelfChanging = true;
-        MoveObjectsToThisShelf();
+        if (currentShelf)
+        {
+            MoveObjectsToThisShelf();
+        }
         currentShelf = this;
         shelfChanging = false;
     }
 
     protected void MoveObjectsToThisShelf()
     {
-        foreach (GameObject obj in objectsInShelf)
+        //Debug.Log($"{objectsInShelf.Count}");
+        foreach (ShelfTarget obj in objectsInShelf)
         {
-            Vector3 relativePos = currentShelf.gameObject.transform.position - obj.transform.position;
-            // do rotation
-            obj.transform.position = gameObject.transform.position + relativePos;
+            if (obj.rigidBody)
+            {
+                obj.rigidBody.Sleep();
+            }
+            Vector3 relativePos = obj.transform.position - currentShelf.gameObject.transform.position;
+            relativePos = gameObject.transform.rotation * (Quaternion.Inverse(currentShelf.transform.rotation) * relativePos);
+
+            Quaternion rotation = gameObject.transform.rotation * (Quaternion.Inverse(currentShelf.transform.rotation) * obj.transform.rotation);
+
+            obj.transform.SetPositionAndRotation(gameObject.transform.position + relativePos, rotation);
+            //Debug.Log($"Moved {obj.name} in shelf to {obj.transform.position} facing {obj.transform.rotation.eulerAngles}");
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isCurrentShelf && !shelfChanging)
+        if (isCurrentShelf && !shelfChanging && TryGetShelfTargetInParent(other, out ShelfTarget target) && !objectsInShelf.Contains(target))
         {
-            objectsInShelf.Add(other.gameObject);
+            objectsInShelf.Add(target);
+            //Debug.Log("Enter shelf");
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (isCurrentShelf && !shelfChanging)
+        if (isCurrentShelf && !shelfChanging && TryGetShelfTargetInParent(other, out ShelfTarget target) && objectsInShelf.Contains(target))
         {
-            if (objectsInShelf.Contains(other.gameObject))
-            {
-                objectsInShelf.Remove(other.gameObject);
-            }
+            objectsInShelf.Remove(target);
+            //Debug.Log("Exit shelf");
         }
+    }
+
+    private bool TryGetShelfTargetInParent(Collider collider, out ShelfTarget shelfTarget)
+    {
+        shelfTarget = (ShelfTarget)collider.GetComponentInParent(typeof(ShelfTarget), false);
+        return shelfTarget;
     }
 }
