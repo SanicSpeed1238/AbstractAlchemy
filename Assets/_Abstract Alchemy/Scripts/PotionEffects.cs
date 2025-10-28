@@ -5,10 +5,17 @@ public class PotionEffects : ScriptableObject
 {
     public enum Effects
     {
-        None,
-        Shrink,
+        None = 0,
+        Grow = 1,
+        Shrink = 2,
+        Heavy = 4,
+        Light = 8,
+        Hot = 16,
+        Cold = 32
     }
+    [Header("Effect")]
     public Effects currentEffect;
+    public Effects conflictingEffect;
 
     [Header("VFX")]
     public GameObject potionFX;
@@ -16,25 +23,11 @@ public class PotionEffects : ScriptableObject
 
     public void PotionEffect(GameObject other)
     {
-        Instantiate(potionFX, other.transform.position, Quaternion.identity, other.transform);
-        
-        switch(currentEffect)
+        if (other.TryGetComponent<PotionTargetAbstract>(out PotionTargetAbstract potionTarget))
         {
-            case Effects.None:
-                break;
-            case Effects.Shrink:
-                EffectShrink(other); break;
-            default:
-                break;
+            Instantiate(potionFX, other.transform.position, Quaternion.identity, other.transform);
+
+            potionTarget.AddPotionEffect(this);
         }
     }
-
-    #region Effect Functions
-
-    private void EffectShrink(GameObject other)
-    {
-        other.transform.localScale = new(.5f, .5f, .5f);
-    }
-
-    #endregion
 }

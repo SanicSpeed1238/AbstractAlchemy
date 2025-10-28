@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d87f9c6e2fa1160468557f2be64c8844, type: 3}
   m_Name: potionShrink
   m_EditorClassIdentifier: 
-  currentEffect: 1
+  currentEffect: 2
+  conflictingEffect: 1
   potionFX: {fileID: 5183528292059555011, guid: 38a8e94cb42ff724fb4e2b5fd21ca679,
     type: 3}
   breakFX: {fileID: 955685499723473565, guid: 8368466ebff4aad49bef0a774bd4a7ec, type: 3}
