@@ -19,7 +19,7 @@ public abstract class PotionTargetAbstract : MonoBehaviour
     }
     public void AddPotionEffect(PotionEffects.Effects effects)
     {
-        PotionEffects.Effects newEffects = currentEffects ^ effects;
+        PotionEffects.Effects newEffects = effects &~ currentEffects;
         currentEffects |= effects;
 
         if (newEffects != PotionEffects.Effects.None)
