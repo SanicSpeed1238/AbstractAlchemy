@@ -6,11 +6,11 @@ public class PotionObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Susceptible"))
+        if (collision.gameObject.GetComponent<PotionTargetAbstract>() != null)
         {
-            effect.PotionEffect(collision.gameObject);
+            collision.gameObject.GetComponent<PotionTargetAbstract>().AddPotionEffect(effect);
 
-            Instantiate(effect.breakFX, transform.position, Quaternion.identity);
+            Instantiate(effect.startFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

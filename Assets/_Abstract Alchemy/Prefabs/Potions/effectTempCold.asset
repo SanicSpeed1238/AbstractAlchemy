@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d87f9c6e2fa1160468557f2be64c8844, type: 3}
-  m_Name: potionShrink
+  m_Name: effectTempCold
   m_EditorClassIdentifier: 
-  currentEffect: 2
-  conflictingEffect: 1
-  potionFX: {fileID: 5183528292059555011, guid: 38a8e94cb42ff724fb4e2b5fd21ca679,
+  currentEffect: 32
+  conflictingEffect: 16
+  effectFX: {fileID: 5217137587019547717, guid: 423f73bfac1d64f49a75451407b7bbb6,
     type: 3}
-  breakFX: {fileID: 955685499723473565, guid: 8368466ebff4aad49bef0a774bd4a7ec, type: 3}
+  startFX: {fileID: 7764186211479501931, guid: aa4e7860c1cd032438d8e6e1d5e2cb08, type: 3}

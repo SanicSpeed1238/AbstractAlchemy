@@ -17,17 +17,7 @@ public class PotionEffects : ScriptableObject
     public Effects currentEffect;
     public Effects conflictingEffect;
 
-    [Header("VFX")]
-    public GameObject potionFX;
-    public GameObject breakFX;
-
-    public void PotionEffect(GameObject other)
-    {
-        if (other.TryGetComponent<PotionTargetAbstract>(out PotionTargetAbstract potionTarget))
-        {
-            Instantiate(potionFX, other.transform.position, Quaternion.identity, other.transform);
-
-            potionTarget.AddPotionEffect(this);
-        }
-    }
+    [Header("VFX / SFX")]
+    public GameObject effectFX;
+    public GameObject startFX;
 }

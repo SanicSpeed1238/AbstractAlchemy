@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87f9c6e2fa1160468557f2be64c8844, type: 3}
+  m_Name: effectWeightHeavy
+  m_EditorClassIdentifier: 
+  currentEffect: 4
+  conflictingEffect: 8
+  effectFX: {fileID: 8786816380804614484, guid: 5feed8acd94513a4980c1f9a0ac3f53d,
+    type: 3}
+  startFX: {fileID: 4607208162143243664, guid: 0a3d19bd4acdc8247ae3f791aa4cd8b2, type: 3}

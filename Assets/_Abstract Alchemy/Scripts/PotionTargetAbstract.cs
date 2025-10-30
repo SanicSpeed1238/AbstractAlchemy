@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class PotionTargetAbstract : MonoBehaviour
@@ -9,6 +7,11 @@ public abstract class PotionTargetAbstract : MonoBehaviour
     {
         return currentEffects;
     }
+    public bool HasPotionEffect(PotionEffects.Effects effects)
+    {
+        return currentEffects.HasFlag(effects);
+    }
+
     public void AddPotionEffect(PotionEffects effects)
     {
         if (effects.conflictingEffect != PotionEffects.Effects.None && HasPotionEffect(effects.conflictingEffect))
@@ -27,6 +30,7 @@ public abstract class PotionTargetAbstract : MonoBehaviour
             OnPotionEffectsAdded(newEffects);
         }
     }
+
     public void RemovePotionEffect(PotionEffects.Effects effects)
     {
         PotionEffects.Effects removedEffects = currentEffects & effects;
@@ -37,14 +41,11 @@ public abstract class PotionTargetAbstract : MonoBehaviour
             OnPotionEffectsRemoved(removedEffects);
         }
     }
+
     public void ClearPotionEffects()
     {
         RemovePotionEffect((PotionEffects.Effects)~0);
-    }
-    public bool HasPotionEffect(PotionEffects.Effects effects)
-    {
-        return currentEffects.HasFlag(effects);
-    }
+    }  
 
     protected abstract void OnPotionEffectsAdded(PotionEffects.Effects effects);
 

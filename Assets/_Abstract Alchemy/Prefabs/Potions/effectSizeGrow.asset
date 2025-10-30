@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87f9c6e2fa1160468557f2be64c8844, type: 3}
+  m_Name: effectSizeGrow
+  m_EditorClassIdentifier: 
+  currentEffect: 1
+  conflictingEffect: 2
+  effectFX: {fileID: 6651493606286591468, guid: a2f1a1ce0be3aaa4ba6c77bcf70735d8,
+    type: 3}
+  startFX: {fileID: 9084853226892390702, guid: f6c39b1315349064582f3c82d8765fc9, type: 3}
