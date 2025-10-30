@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Mallet : MonoBehaviour
 {
-    public Recipes[] recipes;
+    public Recipe[] recipes;
     
     // Start is called before the first frame update
     void Start()
@@ -22,29 +22,29 @@ public class Mallet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        GameObject prefab = PrefabUtility.GetNearestPrefabInstanceRoot(collision.gameObject);
-        if (prefab)
+        ObjectRoot root = collision.gameObject.GetComponentInParent<ObjectRoot>();
+        if (root)
         {
             foreach (var item in recipes)
             {
-                if (item.inputPrefab == prefab)
+                if (root.ingredientName == item.inputIngredientName)
                 {
-                    RecipeConvertItem(collision.gameObject);
+                    RecipeConvertItem(root, item);
                     break;
                 }
             }
         }
     }
 
-    public void RecipeConvertItem(GameObject gameObject)
+    public void RecipeConvertItem(ObjectRoot root, Recipe recipe)
     {
-
+        RecipeUtil.ConvertObjectToOtherObject(root, recipe.outputPrefab);
     }
 
     [Serializable]
-    public struct Recipes
+    public struct Recipe
     {
-        public GameObject inputPrefab;
+        public string inputIngredientName;
         public GameObject outputPrefab;
     }
 }

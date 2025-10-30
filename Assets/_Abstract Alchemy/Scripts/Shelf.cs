@@ -9,7 +9,7 @@ public class Shelf : MonoBehaviour
     [Tooltip("Set this to true if it is the shelf closest to the player's starting location. No more than one shelf in the scene should have this value set to true.")]
     public bool defaultToCurrentShelf;
 
-    public static List<ShelfTarget> objectsInShelf = new();
+    public static List<ObjectRoot> objectsInShelf = new();
 
     private static bool shelfChanging;
 
@@ -46,7 +46,7 @@ public class Shelf : MonoBehaviour
     protected void MoveObjectsToThisShelf()
     {
         //Debug.Log($"{objectsInShelf.Count}");
-        foreach (ShelfTarget obj in objectsInShelf)
+        foreach (ObjectRoot obj in objectsInShelf)
         {
             if (obj.rigidBody)
             {
@@ -64,7 +64,7 @@ public class Shelf : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isCurrentShelf && !shelfChanging && TryGetShelfTargetInParent(other, out ShelfTarget target) && !objectsInShelf.Contains(target))
+        if (isCurrentShelf && !shelfChanging && TryGetShelfTargetInParent(other, out ObjectRoot target) && !objectsInShelf.Contains(target))
         {
             objectsInShelf.Add(target);
             //Debug.Log("Enter shelf");
@@ -73,16 +73,16 @@ public class Shelf : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (isCurrentShelf && !shelfChanging && TryGetShelfTargetInParent(other, out ShelfTarget target) && objectsInShelf.Contains(target))
+        if (isCurrentShelf && !shelfChanging && TryGetShelfTargetInParent(other, out ObjectRoot target) && objectsInShelf.Contains(target))
         {
             objectsInShelf.Remove(target);
             //Debug.Log("Exit shelf");
         }
     }
 
-    private bool TryGetShelfTargetInParent(Collider collider, out ShelfTarget shelfTarget)
+    private bool TryGetShelfTargetInParent(Collider collider, out ObjectRoot shelfTarget)
     {
-        shelfTarget = (ShelfTarget)collider.GetComponentInParent(typeof(ShelfTarget), false);
+        shelfTarget = (ObjectRoot)collider.GetComponentInParent(typeof(ObjectRoot), false);
         return shelfTarget;
     }
 }

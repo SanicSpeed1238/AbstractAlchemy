@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipes:
-  - inputPrefab: {fileID: 0}
+  - inputIngredientName: 
     outputPrefab: {fileID: 0}
 --- !u!1 &2134195713135693204
 GameObject:
@@ -223,7 +223,6 @@ GameObject:
   - component: {fileID: 8263499442174883624}
   - component: {fileID: 7212304683850654004}
   - component: {fileID: 6357925061710159536}
-  - component: {fileID: 3821281486647621777}
   - component: {fileID: 1674679042365237682}
   m_Layer: 0
   m_Name: Mallet
@@ -478,19 +477,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &3821281486647621777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134195713135693204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5abe08b76bc714b42a904f4a4627792f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidBody: {fileID: 7212304683850654004}
 --- !u!114 &1674679042365237682
 MonoBehaviour:
   m_ObjectHideFlags: 0
