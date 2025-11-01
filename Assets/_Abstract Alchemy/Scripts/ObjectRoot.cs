@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjectRoot : MonoBehaviour
@@ -7,7 +8,7 @@ public class ObjectRoot : MonoBehaviour
     [Header("Object Properties")]
     [Tooltip("Whether the object can teleport between shelves")]
     public bool canShelf;
-    [Tooltip("Identifier used to determine what kind of ingredient this is. Can be left blank if the object won't be used in any recipes. Dylan's still working on the specifics of how this'll work.")]
+    [Tooltip("Identifier used to determine what kind of ingredient this is. Can be left blank if the object won't be used in any recipes.\n\nExamples names for consistency:\nRed Ingredient\nBlue Ingredient\nProcessed Red Ingredient")]
     public string ingredientName;
     [Header("Components")]
     [Tooltip("The potion target of the object this component is attached to. If empty, this value will attempt to be set automatically.")]
@@ -25,5 +26,13 @@ public class ObjectRoot : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnDestroy()
+    {
+        if (canShelf && Shelf.objectsInShelf.Contains(this))
+        {
+            Shelf.objectsInShelf.Remove(this);
+        }
     }
 }

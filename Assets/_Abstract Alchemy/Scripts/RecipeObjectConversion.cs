@@ -1,9 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public static class RecipeUtil
+[CreateAssetMenu(fileName = "New Object Conversion", menuName = "Recipes")]
+public class RecipeObjectConversion : ScriptableObject
 {
+    public string inputIngredientName;
+    public GameObject outputPrefab;
+
     public static GameObject ConvertObjectToOtherObject(ObjectRoot input, GameObject outputPrefab)
     {
         PotionEffects.Effects potionEffects = PotionEffects.Effects.None;
@@ -12,10 +14,11 @@ public static class RecipeUtil
             potionEffects = input.potionTarget.GetPotionEffects();
         }
         GameObject converted = GameObject.Instantiate(outputPrefab, input.transform.position, input.transform.rotation);
-        if (outputPrefab.TryGetComponent<PotionTargetAbstract>(out PotionTargetAbstract potionTarget) && potionEffects != PotionEffects.Effects.None)
+        if (potionEffects != PotionEffects.Effects.None && converted.TryGetComponent<PotionTargetAbstract>(out PotionTargetAbstract potionTarget))
         {
             potionTarget.AddPotionEffect(potionEffects);
         }
+        GameObject.Destroy(input.gameObject);
         return converted;
     }
 }

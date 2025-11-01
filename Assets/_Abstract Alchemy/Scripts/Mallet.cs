@@ -6,12 +6,11 @@ using UnityEngine;
 
 public class Mallet : MonoBehaviour
 {
-    public Recipe[] recipes;
-    
-    // Start is called before the first frame update
-    void Start()
+    public new Collider collider;
+    public RecipeObjectConversion[] recipes;
+    void Awake()
     {
-
+        if (!collider) { collider = GetComponent<Collider>(); }
     }
 
     // Update is called once per frame
@@ -22,29 +21,31 @@ public class Mallet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        ObjectRoot root = collision.gameObject.GetComponentInParent<ObjectRoot>();
-        if (root)
+        if (collision.relativeVelocity.magnitude >= 2f)
         {
-            foreach (var item in recipes)
+            // All swinging requirements met, now check if it is a recipe thing
+            ObjectRoot root = collision.gameObject.GetComponentInParent<ObjectRoot>(false);
+            if (root)
             {
-                if (root.ingredientName == item.inputIngredientName)
+                foreach (var item in recipes)
                 {
-                    RecipeConvertItem(root, item);
-                    break;
+                    if (root.ingredientName == item.inputIngredientName)
+                    {
+                        RecipeConvertItem(root, item);
+                        break;
+                    }
                 }
             }
         }
     }
 
-    public void RecipeConvertItem(ObjectRoot root, Recipe recipe)
+    public void RecipeConvertItem(ObjectRoot root, RecipeObjectConversion recipe)
     {
-        RecipeUtil.ConvertObjectToOtherObject(root, recipe.outputPrefab);
-    }
+        Collider outputCollider = RecipeObjectConversion.ConvertObjectToOtherObject(root, recipe.outputPrefab).GetComponentInChildren<Collider>();
+        if (outputCollider)
+        {
+            Physics.IgnoreCollision(outputCollider, this.collider);
+        }
 
-    [Serializable]
-    public struct Recipe
-    {
-        public string inputIngredientName;
-        public GameObject outputPrefab;
     }
 }

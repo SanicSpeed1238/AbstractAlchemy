@@ -48,6 +48,7 @@ public class Shelf : MonoBehaviour
         //Debug.Log($"{objectsInShelf.Count}");
         foreach (ObjectRoot obj in objectsInShelf)
         {
+            if (!obj) { continue; }
             if (obj.rigidBody)
             {
                 obj.rigidBody.Sleep();
