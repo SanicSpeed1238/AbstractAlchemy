@@ -88,7 +88,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _AnimationDetail: 3
+    - _AnimationDetail: 20
     - _AnimationSpeed: 0.6
     - _BUILTIN_QueueControl: -1
     - _BUILTIN_QueueOffset: 0
