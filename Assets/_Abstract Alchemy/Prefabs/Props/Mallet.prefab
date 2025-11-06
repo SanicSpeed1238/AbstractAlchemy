@@ -207,9 +207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1e253ed544cb444834c96bf88eed27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 0}
   recipes:
-  - inputIngredientName: 
-    outputPrefab: {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2134195713135693204
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +224,9 @@ GameObject:
   - component: {fileID: 7212304683850654004}
   - component: {fileID: 6357925061710159536}
   - component: {fileID: 1674679042365237682}
+  - component: {fileID: 6661042567133872522}
+  - component: {fileID: 3574352963461307362}
+  - component: {fileID: 3135602001581907249}
   m_Layer: 0
   m_Name: Mallet
   m_TagString: Untagged
@@ -324,7 +327,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &6357925061710159536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,7 +438,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -448,7 +451,7 @@ MonoBehaviour:
   m_SmoothRotation: 0
   m_SmoothRotationAmount: 8
   m_TightenRotation: 0.1
-  m_TrackScale: 1
+  m_TrackScale: 0
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
@@ -489,3 +492,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1127faa5dab71b846ab7de2fa9e00c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6661042567133872522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134195713135693204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2468c28101843894eac8cf15b40e20e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canShelf: 1
+  ingredientName: 
+  potionTarget: {fileID: 1674679042365237682}
+  rigidBody: {fileID: 0}
+--- !u!114 &3574352963461307362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134195713135693204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1e253ed544cb444834c96bf88eed27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 3135602001581907249}
+  recipes:
+  - {fileID: 11400000, guid: 1be7c4875e4c2ee43b4f132ea9014f42, type: 2}
+  - {fileID: 11400000, guid: de065a495856ded4a8229ba28d1df113, type: 2}
+  - {fileID: 11400000, guid: 697c97465babd274eb91b17813af7d21, type: 2}
+--- !u!65 &3135602001581907249
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134195713135693204}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.27010483, y: 0.016463498, z: 0.15487319}
+  m_Center: {x: 0.099999666, y: 0, z: 0}

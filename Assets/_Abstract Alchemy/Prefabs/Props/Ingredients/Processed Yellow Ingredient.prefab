@@ -14,12 +14,12 @@ GameObject:
   - component: {fileID: 6534811003386311831}
   - component: {fileID: 485021254840757501}
   - component: {fileID: 1443009837344057145}
-  - component: {fileID: 256836751215787332}
-  - component: {fileID: 7920449699519298221}
-  - component: {fileID: 730165359368493274}
-  - component: {fileID: 4493693678120870724}
+  - component: {fileID: -8869805795273427338}
+  - component: {fileID: 7835306847091232444}
+  - component: {fileID: 8494612518201286263}
+  - component: {fileID: 7234160271972244477}
   m_Layer: 0
-  m_Name: Red Ingredient
+  m_Name: Processed Yellow Ingredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dd69e079e400cf24f8616063ad738ac1, type: 2}
+  - {fileID: 2100000, guid: 6c8bd559b92313846a7cfff8555fa8f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,7 +89,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335032226439600529}
-  m_Mesh: {fileID: 2540817853737639666, guid: 993f0d04f5ce91049a059d5d24d30498, type: 3}
+  m_Mesh: {fileID: -4522772275615341545, guid: 951b950a243a279408f76a88e7d2288c, type: 3}
 --- !u!114 &6534811003386311831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canShelf: 1
-  ingredientName: Red Ingredient
+  ingredientName: Processed Yellow Ingredient
   potionTarget: {fileID: 485021254840757501}
   rigidBody: {fileID: 1443009837344057145}
 --- !u!114 &485021254840757501
@@ -145,28 +145,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &256836751215787332
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335032226439600529}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.01
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7920449699519298221
+--- !u!114 &-8869805795273427338
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,7 +297,29 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!108 &730165359368493274
+--- !u!64 &7835306847091232444
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335032226439600529}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4522772275615341545, guid: 951b950a243a279408f76a88e7d2288c, type: 3}
+--- !u!108 &8494612518201286263
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -329,7 +330,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0, b: 0.26052094, a: 1}
+  m_Color: {r: 1, g: 0.9183841, b: 0, a: 1}
   m_Intensity: 0.09
   m_Range: 0.3
   m_SpotAngle: 30
@@ -380,7 +381,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &4493693678120870724
+--- !u!114 &7234160271972244477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
