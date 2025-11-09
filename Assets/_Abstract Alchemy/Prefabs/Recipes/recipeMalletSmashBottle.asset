@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 125c7bab38dd39040b4c627ea0917a4f, type: 3}
-  m_Name: MalletBlueIngredient
+  m_Name: recipeMalletSmashBottle
   m_EditorClassIdentifier: 
-  inputIngredientName: Blue Ingredient
-  outputPrefab: {fileID: 1335032226439600529, guid: 86ed723c021b2fb4e916572085099a8f,
+  inputIngredientName: Bottle
+  outputPrefab: {fileID: 1466632031878021619, guid: 23ba712d04005614b9f7000fd93578b8,
     type: 3}
+  vfxPrefab: {fileID: 0}

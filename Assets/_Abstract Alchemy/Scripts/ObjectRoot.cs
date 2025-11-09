@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ObjectRoot : MonoBehaviour
 {
@@ -15,17 +16,17 @@ public class ObjectRoot : MonoBehaviour
     public PotionTargetAbstract potionTarget;
     [Tooltip("The rigid body of the object this component is attached to. If empty, this value will attempt to be set automatically.")]
     public Rigidbody rigidBody;
+    [Tooltip("The XR grab interactable of the object this component is attached to. If empty, this value will attempt to be set automatically.")]
+    public XRGrabInteractable xrGrabInteractable;
+    [Tooltip("The renderer of the object this component is attached to. If empty, this value will attempt to be set automatically.")]
+    public new Renderer renderer;
 
     void Awake()
     {
         if (!potionTarget) { potionTarget = GetComponent<PotionTargetAbstract>(); }
         if (!rigidBody) { rigidBody = GetComponent<Rigidbody>(); }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (!xrGrabInteractable) { xrGrabInteractable = GetComponent<XRGrabInteractable>(); }
+        if (!renderer) { renderer = GetComponent<Renderer>(); }
     }
 
     public void OnDestroy()

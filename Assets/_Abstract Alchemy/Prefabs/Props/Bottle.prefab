@@ -44,7 +44,8 @@ GameObject:
   - component: {fileID: 8263499442174883624}
   - component: {fileID: 7212304683850654004}
   - component: {fileID: 6357925061710159536}
-  - component: {fileID: 1674679042365237682}
+  - component: {fileID: 537809008550868085}
+  - component: {fileID: 1019714239934470840}
   m_Layer: 0
   m_Name: Bottle
   m_TagString: Untagged
@@ -297,7 +298,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &1674679042365237682
+--- !u!114 &537809008550868085
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,6 +307,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 2134195713135693204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1127faa5dab71b846ab7de2fa9e00c9f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2468c28101843894eac8cf15b40e20e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canShelf: 1
+  ingredientName: Bottle
+  potionTarget: {fileID: 0}
+  rigidBody: {fileID: 7212304683850654004}
+  xrGrabInteractable: {fileID: 6357925061710159536}
+  renderer: {fileID: 8263499442174883624}
+--- !u!64 &1019714239934470840
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134195713135693204}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4761205824449507712, guid: 43623b9f27465ee4694e0fa550f37b84, type: 3}

@@ -16,10 +16,8 @@ GameObject:
   - component: {fileID: 1443009837344057145}
   - component: {fileID: -8869805795273427338}
   - component: {fileID: 7835306847091232444}
-  - component: {fileID: 8494612518201286263}
-  - component: {fileID: 7234160271972244477}
   m_Layer: 0
-  m_Name: Blue Ingredient
+  m_Name: Processed Abstract Ingredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +35,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 5235869030659637561}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2992133811975277449
@@ -60,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d92816a5fee50d0499a2317ec664d56e, type: 2}
+  - {fileID: 2100000, guid: 46a6a56cb9cbd8d44bd59da571deb0c5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,7 +88,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335032226439600529}
-  m_Mesh: {fileID: 4702925393065980420, guid: 3a59b373089defe449ef3714a5f1151b, type: 3}
+  m_Mesh: {fileID: -4522772275615341545, guid: 951b950a243a279408f76a88e7d2288c, type: 3}
 --- !u!114 &6534811003386311831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,11 +102,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canShelf: 1
-  ingredientName: Blue Ingredient
+  ingredientName: Processed Yellow Ingredient
   potionTarget: {fileID: 485021254840757501}
   rigidBody: {fileID: 1443009837344057145}
-  xrGrabInteractable: {fileID: 0}
-  renderer: {fileID: 0}
+  xrGrabInteractable: {fileID: -8869805795273427338}
+  renderer: {fileID: 2992133811975277449}
 --- !u!114 &485021254840757501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,19 +319,52 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4702925393065980420, guid: 3a59b373089defe449ef3714a5f1151b, type: 3}
---- !u!108 &8494612518201286263
+  m_Mesh: {fileID: -4522772275615341545, guid: 951b950a243a279408f76a88e7d2288c, type: 3}
+--- !u!1 &1686632309037276586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5235869030659637561}
+  - component: {fileID: 3002054791429822527}
+  - component: {fileID: 6564920449782627342}
+  m_Layer: 0
+  m_Name: Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5235869030659637561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686632309037276586}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.0058, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3724424939448241531}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &3002054791429822527
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335032226439600529}
+  m_GameObject: {fileID: 1686632309037276586}
   m_Enabled: 1
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0, g: 0.2469294, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9183841, b: 0, a: 1}
   m_Intensity: 0.01
   m_Range: 0.3
   m_SpotAngle: 30
@@ -383,13 +415,13 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &7234160271972244477
+--- !u!114 &6564920449782627342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335032226439600529}
+  m_GameObject: {fileID: 1686632309037276586}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}

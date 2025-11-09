@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 125c7bab38dd39040b4c627ea0917a4f, type: 3}
-  m_Name: MalletRedIngredient
+  m_Name: recipeMalletYellowIngredient
   m_EditorClassIdentifier: 
-  inputIngredientName: Red Ingredient
-  outputPrefab: {fileID: 1335032226439600529, guid: 6a484c86c42e85c4c8894d36be4efafe,
+  inputIngredientName: Yellow Ingredient
+  outputPrefab: {fileID: 211515761028960909, guid: 5909f32a99ee06d40bdb092aae63f2f3,
+    type: 3}
+  vfxPrefab: {fileID: 256327379198473896, guid: 5740919631e8e274191d367b0f517c96,
     type: 3}

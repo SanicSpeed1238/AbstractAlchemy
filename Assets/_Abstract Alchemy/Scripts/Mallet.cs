@@ -41,7 +41,7 @@ public class Mallet : MonoBehaviour
 
     public void RecipeConvertItem(ObjectRoot root, RecipeObjectConversion recipe)
     {
-        Collider outputCollider = RecipeObjectConversion.ConvertObjectToOtherObject(root, recipe.outputPrefab).GetComponentInChildren<Collider>();
+        Collider outputCollider = RecipeObjectConversion.ConvertObjectToOtherObject(root, recipe.outputPrefab, recipe.vfxPrefab, root.transform.position, Quaternion.identity).GetComponentInChildren<Collider>();
         if (outputCollider)
         {
             Physics.IgnoreCollision(outputCollider, this.collider);

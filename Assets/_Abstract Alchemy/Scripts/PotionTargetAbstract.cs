@@ -42,6 +42,12 @@ public abstract class PotionTargetAbstract : MonoBehaviour
         }
     }
 
+    public void SetPotionEffects(PotionEffects.Effects effects)
+    {
+        RemovePotionEffect(~effects);
+        AddPotionEffect(effects);
+    }
+
     public void ClearPotionEffects()
     {
         RemovePotionEffect((PotionEffects.Effects)~0);
