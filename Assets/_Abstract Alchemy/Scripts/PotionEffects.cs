@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Effect", menuName = "Potion Effect")]
 public class PotionEffects : ScriptableObject
 {
+    [Flags]
     public enum Effects
     {
         None = 0,
