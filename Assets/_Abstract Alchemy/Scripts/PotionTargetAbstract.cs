@@ -1,8 +1,17 @@
+using System;
 using UnityEngine;
 
 public abstract class PotionTargetAbstract : MonoBehaviour
 {
+    public ObjectRoot objectRoot;
+    
     private PotionEffects.Effects currentEffects;
+    public Action<ObjectRoot> OnPotionEffectsChangedEvent;
+
+    public virtual void Start()
+    {
+        if (!objectRoot) { objectRoot = GetComponent<ObjectRoot>(); }
+    }
     public PotionEffects.Effects GetPotionEffects()
     {
         return currentEffects;
@@ -28,6 +37,7 @@ public abstract class PotionTargetAbstract : MonoBehaviour
         if (newEffects != PotionEffects.Effects.None)
         {
             OnPotionEffectsAdded(newEffects);
+            OnPotionEffectsChangedEvent?.Invoke(objectRoot);
         }
     }
 
@@ -39,6 +49,7 @@ public abstract class PotionTargetAbstract : MonoBehaviour
         if (removedEffects != PotionEffects.Effects.None)
         {
             OnPotionEffectsRemoved(removedEffects);
+            OnPotionEffectsChangedEvent?.Invoke(objectRoot);
         }
     }
 

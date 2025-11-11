@@ -70,6 +70,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1127faa5dab71b846ab7de2fa9e00c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectRoot: {fileID: 6534811003386311831}
+  shrinkMultiplier: 0.5
+  growMultiplier: 2
+  lightMultiplier: 2
+  heavyMultiplier: 0.5
+  coldMultiplier: 0.2
+  hotMultiplier: 0.5
 --- !u!54 &1443009837344057145
 Rigidbody:
   m_ObjectHideFlags: 0

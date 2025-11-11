@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2764833982567976819}
-  - component: {fileID: 6480728236916818222}
   - component: {fileID: 7783969943111639688}
+  - component: {fileID: 4926979935427780917}
   m_Layer: 0
   m_Name: ObjectRootTrigger
   m_TagString: Untagged
@@ -33,8 +33,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6480728236916818222
-BoxCollider:
+--- !u!114 &7783969943111639688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9064822466181972556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57394837aeade414786abbb831ef9d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 4926979935427780917}
+  requiredPotionEffects: -1
+  requiredIngredientName: 
+  onObjectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  onObjectExited:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &4926979935427780917
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -52,23 +73,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7783969943111639688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9064822466181972556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57394837aeade414786abbb831ef9d04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collider: {fileID: 6480728236916818222}
-  requiredPotionEffects: 0
-  requiredIngredientName: 
-  onObjectEntered:
-    m_PersistentCalls:
-      m_Calls: []
