@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+  m_AmbientSkyColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.7
-  m_AmbientMode: 3
+  m_AmbientIntensity: 1
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 277ce4896583f524e930c1bc21dad152, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -877,7 +877,7 @@ Transform:
   m_GameObject: {fileID: 130857887}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2404, y: 0.033, z: -0.776}
+  m_LocalPosition: {x: 0.362, y: 0.233, z: -0.214}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1616,7 +1616,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1781,6 +1781,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.z
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206492696246878221, guid: b87471c4c915e0f41b49a8e0932b38b5,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.74509805
       objectReference: {fileID: 0}
     - target: {fileID: 9112266074236247430, guid: b87471c4c915e0f41b49a8e0932b38b5,
         type: 3}
@@ -4871,7 +4876,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1127faa5dab71b846ab7de2fa9e00c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shrinkMultiplier: 0.5
+  objectRoot: {fileID: 0}
+  shrinkMultiplier: 0.2
   growMultiplier: 2
   lightMultiplier: 2
   heavyMultiplier: 0.5
@@ -6870,17 +6876,17 @@ PrefabInstance:
     - target: {fileID: 1081019527223791233, guid: 5e8c51cd95e5f944da119f8c2cc1601c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1081019527223791233, guid: 5e8c51cd95e5f944da119f8c2cc1601c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1081019527223791233, guid: 5e8c51cd95e5f944da119f8c2cc1601c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1081019527223791233, guid: 5e8c51cd95e5f944da119f8c2cc1601c,
         type: 3}
@@ -6917,10 +6923,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3757954145694658222, guid: 5e8c51cd95e5f944da119f8c2cc1601c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024202571160995832, guid: 5e8c51cd95e5f944da119f8c2cc1601c,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4850839823802031015, guid: 5e8c51cd95e5f944da119f8c2cc1601c,
         type: 3}
       propertyPath: m_Name
       value: -- XR Controller --
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855864487518780381, guid: 5e8c51cd95e5f944da119f8c2cc1601c,
+        type: 3}
+      propertyPath: m_CameraYOffset
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
