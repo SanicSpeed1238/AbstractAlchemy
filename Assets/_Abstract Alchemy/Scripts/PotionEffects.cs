@@ -22,4 +22,5 @@ public class PotionEffects : ScriptableObject
     [Header("VFX / SFX")]
     public GameObject effectFX;
     public GameObject startFX;
+    public Material liquidMaterial;
 }

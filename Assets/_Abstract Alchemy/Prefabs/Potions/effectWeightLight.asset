@@ -16,4 +16,5 @@ MonoBehaviour:
   conflictingEffect: 4
   effectFX: {fileID: 7338542647873624012, guid: ad75ec0e79bf3354eb1fea92447e2616,
     type: 3}
-  startFX: {fileID: 8284718999388648114, guid: ef25f7af08be5df4e8cda0c8c6de86ec, type: 3}
+  startFX: {fileID: 7001012640983294928, guid: eb0e1ef8c01ed544ca9b206eade2096e, type: 3}
+  liquidMaterial: {fileID: 2100000, guid: 7a890f72c2690b1438b6694d1ef97096, type: 2}
