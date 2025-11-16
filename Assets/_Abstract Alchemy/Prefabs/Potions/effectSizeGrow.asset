@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentEffect: 1
   conflictingEffect: 2
-  effectFX: {fileID: 6651493606286591468, guid: a2f1a1ce0be3aaa4ba6c77bcf70735d8,
-    type: 3}
-  startFX: {fileID: 5499263550334117467, guid: 8a4b7a86880d44c4eb99925963179aa4, type: 3}
+  effectFX: {fileID: 502696835949495919, guid: a2f1a1ce0be3aaa4ba6c77bcf70735d8, type: 3}
+  startFX: {fileID: 4271711459787144465, guid: d15215f0b852f2444a0301a55839e409, type: 3}
   liquidMaterial: {fileID: 2100000, guid: 063b82c048c38e541ab61e794c9d006a, type: 2}
