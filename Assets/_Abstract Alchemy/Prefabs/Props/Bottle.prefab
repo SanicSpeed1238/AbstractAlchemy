@@ -63,7 +63,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.8587211, y: -1.3480043, z: -0.5643072}
-  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7827374560900457032}
@@ -388,7 +388,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3485565421791000553}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -401,7 +401,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f9a898f4cdacf2842864d8a02f254754, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -433,7 +433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7827374560900457032}
   - component: {fileID: 3590113349172585595}
-  - component: {fileID: 3813956590672622307}
+  - component: {fileID: 1728089314200061936}
   m_Layer: 0
   m_Name: Potion Component
   m_TagString: Untagged
@@ -450,8 +450,8 @@ Transform:
   m_GameObject: {fileID: 6713027102865244715}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.06, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0.0955, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8796624885242704490}
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa2b7b06b81ca548b98f3a35d96b3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentEffect: {fileID: 0}
+  currentEffects: 0
   listOfEffects:
   - {fileID: 11400000, guid: de32924eac8e29a4da56692ebc467336, type: 2}
   - {fileID: 11400000, guid: 945fc03d5aab18e44ae26e176f620695, type: 2}
@@ -476,9 +476,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 987afc3bda8bede40951a858c5b9fdcc, type: 2}
   - {fileID: 11400000, guid: a5a4b0ad09375e84090d01ba8be53779, type: 2}
   - {fileID: 11400000, guid: 244caabaafdfca24baa5fb08354fb2d9, type: 2}
-  templiquid: {fileID: 4230021878235954997}
---- !u!65 &3813956590672622307
-BoxCollider:
+  liquid: {fileID: 4230021878235954997}
+--- !u!135 &1728089314200061936
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -496,5 +496,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Radius: 0.025
   m_Center: {x: 0, y: 0, z: 0}

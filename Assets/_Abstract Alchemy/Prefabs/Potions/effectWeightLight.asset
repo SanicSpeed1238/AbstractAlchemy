@@ -17,4 +17,5 @@ MonoBehaviour:
   effectFX: {fileID: 7338542647873624012, guid: ad75ec0e79bf3354eb1fea92447e2616,
     type: 3}
   startFX: {fileID: 9026192638301200444, guid: 68bc55cffa843f84aae36119e3f76ac4, type: 3}
+  liquidColor: {r: 1, g: 0.7607843, b: 0, a: 0}
   liquidMaterial: {fileID: 2100000, guid: 7a890f72c2690b1438b6694d1ef97096, type: 2}

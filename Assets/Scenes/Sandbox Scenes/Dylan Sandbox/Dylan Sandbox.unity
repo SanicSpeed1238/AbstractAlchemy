@@ -1139,7 +1139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa2b7b06b81ca548b98f3a35d96b3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: {fileID: 11400000, guid: de32924eac8e29a4da56692ebc467336, type: 2}
+  currentEffects: 0
+  listOfEffects: []
+  liquid: {fileID: 0}
 --- !u!135 &399114721
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2980,7 +2982,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa2b7b06b81ca548b98f3a35d96b3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: {fileID: 11400000, guid: de32924eac8e29a4da56692ebc467336, type: 2}
+  currentEffects: 0
+  listOfEffects: []
+  liquid: {fileID: 0}
 --- !u!135 &995969591
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5902,17 +5906,17 @@ PrefabInstance:
     - target: {fileID: 8796624885242704490, guid: c371a56b1ff02c14b8f2a51f98d2e816,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.37450033
+      value: 0.341
       objectReference: {fileID: 0}
     - target: {fileID: 8796624885242704490, guid: c371a56b1ff02c14b8f2a51f98d2e816,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5539
+      value: -1.533
       objectReference: {fileID: 0}
     - target: {fileID: 8796624885242704490, guid: c371a56b1ff02c14b8f2a51f98d2e816,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.8827021
+      value: -0.887
       objectReference: {fileID: 0}
     - target: {fileID: 8796624885242704490, guid: c371a56b1ff02c14b8f2a51f98d2e816,
         type: 3}
