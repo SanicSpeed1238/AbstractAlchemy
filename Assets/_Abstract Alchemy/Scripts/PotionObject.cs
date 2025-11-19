@@ -2,20 +2,31 @@ using UnityEngine;
 
 public class PotionObject : MonoBehaviour
 {
+    [Header("Effects List")]
     public PotionEffects.Effects currentEffects;
     public PotionEffects[] listOfEffects;
+
+    [Header("Important Components")]
     public MeshRenderer liquid;
+    public GameObject droplet;
 
-    /*private void OnCollisionEnter(Collision collision)
+    private Transform rootTransform;
+    private bool pouringLiquid;
+    private float pouringTime;
+    private float pouringTimer;   
+
+    private void Start()
     {
-        if (collision.gameObject.GetComponent<PotionTargetAbstract>() != null)
-        {
-            collision.gameObject.GetComponent<PotionTargetAbstract>().AddPotionEffect(currentEffects);
+        rootTransform = GetComponentInParent<ObjectRoot>().gameObject.transform;
+        pouringTime = 0.2f;
+        pouringTimer = 0f;
+    }
 
-            Instantiate(currentEffects.startFX, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
-    }*/
+    private void Update()
+    {
+        CheckIfUpsideDown();
+        PourLiquid();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -66,5 +77,18 @@ public class PotionObject : MonoBehaviour
         currentEffects |= newEffect.currentEffect;
         // |= adds the potion effect to the current list. To set the potion effect, just use the normal =
         // You can also do = Effect1 | Effect2 to set it equal to multiple effects at once
+    }
+
+    private void CheckIfUpsideDown()
+    {
+        float dotProduct = Vector3.Dot(rootTransform.up, Vector3.up);
+
+        if (dotProduct < 0.5f) pouringLiquid = true;
+        else pouringLiquid = false;
+    }
+
+    private void PourLiquid()
+    {
+        if(pouringLiquid) Instantiate(droplet, transform.position, Quaternion.identity);
     }
 }
