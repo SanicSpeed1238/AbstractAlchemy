@@ -89,6 +89,7 @@ MonoBehaviour:
   rigidBody: {fileID: 7212304683850654004}
   xrGrabInteractable: {fileID: 6357925061710159536}
   renderer: {fileID: 8263499442174883624}
+  collider: {fileID: 1019714239934470840}
 --- !u!114 &6357925061710159536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,14 +471,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentEffects: 0
   listOfEffects:
-  - {fileID: 11400000, guid: de32924eac8e29a4da56692ebc467336, type: 2}
   - {fileID: 11400000, guid: 945fc03d5aab18e44ae26e176f620695, type: 2}
-  - {fileID: 11400000, guid: 3d494246a5543e749ad9f1a08a30a81f, type: 2}
+  - {fileID: 11400000, guid: de32924eac8e29a4da56692ebc467336, type: 2}
   - {fileID: 11400000, guid: 987afc3bda8bede40951a858c5b9fdcc, type: 2}
-  - {fileID: 11400000, guid: a5a4b0ad09375e84090d01ba8be53779, type: 2}
+  - {fileID: 11400000, guid: 3d494246a5543e749ad9f1a08a30a81f, type: 2}
   - {fileID: 11400000, guid: 244caabaafdfca24baa5fb08354fb2d9, type: 2}
+  - {fileID: 11400000, guid: a5a4b0ad09375e84090d01ba8be53779, type: 2}
   liquid: {fileID: 4230021878235954997}
   droplet: {fileID: 5542969640769285685, guid: 046db18f5857a0c439b56564a1cbf161, type: 3}
+  collider: {fileID: 0}
 --- !u!135 &1728089314200061936
 SphereCollider:
   m_ObjectHideFlags: 0

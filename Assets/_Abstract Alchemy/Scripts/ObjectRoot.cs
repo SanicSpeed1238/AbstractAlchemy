@@ -20,6 +20,8 @@ public class ObjectRoot : MonoBehaviour
     public XRGrabInteractable xrGrabInteractable;
     [Tooltip("The renderer of the object this component is attached to. If empty, this value will attempt to be set automatically.")]
     public new Renderer renderer;
+    [Tooltip("The collider of the object this component is attached to. If empty, this value will attempt to be set automatically.")]
+    public new Collider collider;
 
     void Awake()
     {
@@ -27,6 +29,7 @@ public class ObjectRoot : MonoBehaviour
         if (!rigidBody) { rigidBody = GetComponent<Rigidbody>(); }
         if (!xrGrabInteractable) { xrGrabInteractable = GetComponent<XRGrabInteractable>(); }
         if (!renderer) { renderer = GetComponent<Renderer>(); }
+        if (!collider) { collider = GetComponentInChildren<Collider>(); }
     }
 
     public void OnDestroy()

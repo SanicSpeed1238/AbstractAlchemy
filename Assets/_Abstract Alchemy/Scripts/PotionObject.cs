@@ -9,20 +9,21 @@ public class PotionObject : MonoBehaviour
     [Header("Important Components")]
     public MeshRenderer liquid;
     public GameObject droplet;
+    public new Collider collider;
 
-    private Transform rootTransform;
+    private ObjectRoot root;
     private bool pouringLiquid;
     private float pouringTime;
     private float pouringTimer;   
 
     private void Start()
     {
-        rootTransform = GetComponentInParent<ObjectRoot>().gameObject.transform;
+        root = GetComponentInParent<ObjectRoot>();
         pouringTime = 0.2f;
         pouringTimer = 0f;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         CheckIfUpsideDown();
         PourLiquid();
@@ -81,7 +82,7 @@ public class PotionObject : MonoBehaviour
 
     private void CheckIfUpsideDown()
     {
-        float dotProduct = Vector3.Dot(rootTransform.up, Vector3.up);
+        float dotProduct = Vector3.Dot(root.transform.up, Vector3.up);
 
         if (dotProduct < 0.5f) pouringLiquid = true;
         else pouringLiquid = false;
@@ -89,6 +90,22 @@ public class PotionObject : MonoBehaviour
 
     private void PourLiquid()
     {
-        if(pouringLiquid) Instantiate(droplet, transform.position, Quaternion.identity);
+        if (pouringLiquid) 
+        { 
+            if (pouringTimer <= 0f)
+            {
+                GameObject pouredDroplet = Instantiate(droplet, transform.position, Quaternion.identity);
+                pouredDroplet.GetComponent<PotionDroplet>().SetDropletEffect(currentEffects);
+                var renderer = pouredDroplet.GetComponent<Renderer>();
+                renderer.material = new Material(liquid.material);
+                renderer.material.SetFloat("_Fill", 1);
+                Physics.IgnoreCollision(pouredDroplet.GetComponent<Collider>(), root.collider);
+                pouringTimer = pouringTime;
+            }
+            else
+            {
+                pouringTimer -= Time.fixedDeltaTime;
+            }
+        }
     }
 }
