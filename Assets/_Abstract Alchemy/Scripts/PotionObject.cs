@@ -9,16 +9,15 @@ public class PotionObject : MonoBehaviour
     [Header("Important Components")]
     public MeshRenderer liquid;
     public GameObject droplet;
-    public new Collider collider;
 
-    private ObjectRoot root;
+    public ObjectRoot root;
     private bool pouringLiquid;
     private float pouringTime;
     private float pouringTimer;   
 
     private void Start()
     {
-        root = GetComponentInParent<ObjectRoot>();
+        if (!root) { root = GetComponentInParent<ObjectRoot>(); }
         pouringTime = 0.2f;
         pouringTimer = 0f;
     }
@@ -42,40 +41,38 @@ public class PotionObject : MonoBehaviour
                         Explode();
                         return;
                     }*/
-                    UpdateCurrentPotion(listOfEffects[0]); Destroy(objRoot.gameObject); break;
+                    UpdateCurrentPotion(PotionEffects.Effects.Grow); Destroy(objRoot.gameObject); break;
                 case "Processed Yellow Ingredient":
                     /*if (currentEffects != PotionEffects.Effects.None)
                     {
                         Explode();
                         return;
                     }*/
-                    UpdateCurrentPotion(listOfEffects[2]); Destroy(objRoot.gameObject); break;
+                    UpdateCurrentPotion(PotionEffects.Effects.Heavy); Destroy(objRoot.gameObject); break;
                 case "Processed Blue Ingredient":
                     /*if (currentEffects != PotionEffects.Effects.None)
                     {
                         Explode();
                         return;
                     }*/
-                    UpdateCurrentPotion(listOfEffects[4]); Destroy(objRoot.gameObject); break;
+                    UpdateCurrentPotion(PotionEffects.Effects.Hot); Destroy(objRoot.gameObject); break;
                 default: break;
             }
         }
     }
 
-    public void UpdateCurrentPotion(PotionEffects newEffect)
+    public void UpdateCurrentPotion(PotionEffects.Effects newEffect)
     {
-        if (currentEffects == PotionEffects.Effects.None)
+        if (newEffect == PotionEffects.Effects.None)
         {
-            liquid.enabled = true;
-            liquid.material.SetColor("_MainColor", newEffect.liquidColor);
-            liquid.material.SetColor("_MixedColor", newEffect.liquidColor);
+            liquid.enabled = false;
         }
         else
         {
             liquid.enabled = true;
-            liquid.material.SetColor("_MixedColor", newEffect.liquidColor);
+            liquid.material.UpdateMaterialWithPotionEffect(newEffect);
         }
-        currentEffects |= newEffect.currentEffect;
+        currentEffects = newEffect;
         // |= adds the potion effect to the current list. To set the potion effect, just use the normal =
         // You can also do = Effect1 | Effect2 to set it equal to multiple effects at once
     }

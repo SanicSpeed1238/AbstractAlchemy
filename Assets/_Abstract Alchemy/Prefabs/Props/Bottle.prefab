@@ -480,6 +480,7 @@ MonoBehaviour:
   liquid: {fileID: 4230021878235954997}
   droplet: {fileID: 5542969640769285685, guid: 046db18f5857a0c439b56564a1cbf161, type: 3}
   collider: {fileID: 0}
+  root: {fileID: 537809008550868085}
 --- !u!135 &1728089314200061936
 SphereCollider:
   m_ObjectHideFlags: 0

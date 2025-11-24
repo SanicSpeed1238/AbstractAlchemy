@@ -5,7 +5,7 @@ public abstract class PotionTargetAbstract : MonoBehaviour
 {
     public ObjectRoot objectRoot;
     
-    private PotionEffects.Effects currentEffects;
+    public PotionEffects.Effects currentEffects;
     public Action<ObjectRoot> OnPotionEffectsChangedEvent;
 
     public virtual void Start()
