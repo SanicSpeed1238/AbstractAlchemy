@@ -8,12 +8,12 @@ public class PotionEffects : ScriptableObject
     public enum Effects
     {
         None = 0,
-        Grow = 1,
-        Shrink = 2,
-        Heavy = 4,
-        Light = 8,
-        Hot = 16,
-        Cold = 32
+        Shrink = 1,
+        Grow = 2,
+        Light = 4,
+        Heavy = 8,
+        Cold = 16,
+        Hot = 32
     }
     [Header("Effect")]
     public Effects currentEffect;

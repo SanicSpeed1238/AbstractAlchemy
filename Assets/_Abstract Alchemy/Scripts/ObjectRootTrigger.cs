@@ -68,7 +68,7 @@ public class ObjectRootTrigger : MonoBehaviour
                 PotionEffectsUpdated(objectRoot);
             }
         }
-        else if (requiredIngredientName == objectRoot.ingredientName || requiredIngredientName == "")
+        else if (requiredIngredientName == objectRoot.smashableIdentifier || requiredIngredientName == "")
         {
             AddObjectToCorrectTrigger(objectRoot);
         }
@@ -122,7 +122,7 @@ public class ObjectRootTrigger : MonoBehaviour
         ObjectRoot objectRoot = other.transform.GetComponentInParent<ObjectRoot>();
         if (objectRoot)
         {
-            if ((objectRoot.ingredientName == requiredIngredientName || requiredIngredientName == "") && (objectRoot.potionTarget || requiredPotionEffects == (PotionEffects.Effects)~0))
+            if ((objectRoot.smashableIdentifier == requiredIngredientName || requiredIngredientName == "") && (objectRoot.potionTarget || requiredPotionEffects == (PotionEffects.Effects)~0))
             {
                 AddObjectToTrigger(objectRoot);
             }

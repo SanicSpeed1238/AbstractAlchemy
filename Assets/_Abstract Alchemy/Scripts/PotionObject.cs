@@ -33,7 +33,7 @@ public class PotionObject : MonoBehaviour
         ObjectRoot objRoot = other.GetComponentInParent<ObjectRoot>();
         if (objRoot)
         {
-            switch(objRoot.ingredientName)
+            switch(objRoot.smashableIdentifier)
             {
                 case "Processed Red Ingredient":
                     /*if (currentEffects != PotionEffects.Effects.None)

@@ -83,13 +83,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2468c28101843894eac8cf15b40e20e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canShelf: 1
-  ingredientName: Bottle
   potionTarget: {fileID: 0}
+  XRGrabInteractable: {fileID: 0}
   rigidBody: {fileID: 7212304683850654004}
-  xrGrabInteractable: {fileID: 6357925061710159536}
-  renderer: {fileID: 8263499442174883624}
   collider: {fileID: 1019714239934470840}
+  renderer: {fileID: 8263499442174883624}
+  smashableIdentifier: Bottle
+  canShelf: 1
 --- !u!114 &6357925061710159536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,7 +479,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a5a4b0ad09375e84090d01ba8be53779, type: 2}
   liquid: {fileID: 4230021878235954997}
   droplet: {fileID: 5542969640769285685, guid: 046db18f5857a0c439b56564a1cbf161, type: 3}
-  collider: {fileID: 0}
   root: {fileID: 537809008550868085}
 --- !u!135 &1728089314200061936
 SphereCollider:

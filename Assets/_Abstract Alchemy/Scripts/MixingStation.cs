@@ -27,7 +27,7 @@ public class MixingStation : PotionTargetAbstract
         ObjectRoot root = collider.gameObject.GetComponentInParent<ObjectRoot>();
         if (root)
         {
-            if (root.ingredientName == "Bottle")
+            if (root.smashableIdentifier == "Bottle")
             {
                 Transform potion = root.transform.Find("Potion Component");
                 if (potion && potion.TryGetComponent(out PotionObject potionObject))

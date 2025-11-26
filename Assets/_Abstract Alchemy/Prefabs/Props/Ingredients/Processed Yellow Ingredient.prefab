@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6534811003386311831, guid: d51218a126f2cf64ea8ab8ebccb3da8c,
+        type: 3}
+      propertyPath: smashableIdentifier
+      value: Processed Yellow Ingredient
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

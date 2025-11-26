@@ -93,6 +93,11 @@ PrefabInstance:
       propertyPath: ingredientName
       value: Processed Blue Ingredient
       objectReference: {fileID: 0}
+    - target: {fileID: 6534811003386311831, guid: d51218a126f2cf64ea8ab8ebccb3da8c,
+        type: 3}
+      propertyPath: smashableIdentifier
+      value: Processed Blue Ingredient
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

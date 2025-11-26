@@ -29,7 +29,7 @@ public class Mallet : MonoBehaviour
             {
                 foreach (var item in recipes)
                 {
-                    if (root.ingredientName == item.inputIngredientName)
+                    if (root.smashableIdentifier == item.inputIngredientName)
                     {
                         RecipeConvertItem(root, item);
                         break;
