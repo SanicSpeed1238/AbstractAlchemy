@@ -18,10 +18,10 @@ public class PotionTargetDefault : PotionTargetAbstract
     [Header("Temperature Effect")]
     [Range(0f, 0.5f)]
     public float coldMultiplier = 0.2f;
-    private readonly float defaultFrictionValue = 0.8f;
+    protected readonly float defaultFrictionValue = 0.8f;
     [Range(0.1f, 1f)]
     public float hotMultiplier = 0.5f;
-    private readonly float defaultBouncinessValue = 0f;
+    protected readonly float defaultBouncinessValue = 0f;
 
     protected override void OnPotionEffectsAdded(PotionEffects.Effects effects)
     {

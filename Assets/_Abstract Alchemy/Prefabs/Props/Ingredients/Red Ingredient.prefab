@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectRoot: {fileID: 6534811003386311831}
+  scaleVFX: 0.3
   currentEffects: 0
   shrinkMultiplier: 0.5
   growMultiplier: 2
@@ -288,7 +289,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335032226439600529}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e2c11005aab5e41448fa0cd688e2c928, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

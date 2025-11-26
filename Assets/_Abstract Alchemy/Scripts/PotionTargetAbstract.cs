@@ -3,14 +3,24 @@ using UnityEngine;
 
 public abstract class PotionTargetAbstract : MonoBehaviour
 {
+    [Header("Basic Properties")]
+
     public ObjectRoot objectRoot;
-    
+
+    [Range(0.01f, 2f)]
+    public float scaleVFX = 1f;
+    private GameObject currentVFX;
+
     public PotionEffects.Effects currentEffects;
     public Action<ObjectRoot> OnPotionEffectsChangedEvent;
 
     public virtual void Start()
     {
         if (!objectRoot) { objectRoot = GetComponent<ObjectRoot>(); }
+
+        currentVFX = new GameObject("VFX");
+        currentVFX.transform.parent = objectRoot.transform;
+        currentVFX.transform.localScale *= scaleVFX;
     }
     public PotionEffects.Effects GetPotionEffects()
     {
@@ -39,8 +49,14 @@ public abstract class PotionTargetAbstract : MonoBehaviour
             OnPotionEffectsAdded(newEffects);
             OnPotionEffectsChangedEvent?.Invoke(objectRoot);
         }
-    }
 
+        for (int vfx = 0; vfx < currentVFX.transform.childCount; vfx++)
+        {
+            Destroy(currentVFX.transform.GetChild(vfx).gameObject);
+        }
+        Instantiate(effects.GetScriptableObject().effectFX, objectRoot.transform.position, Quaternion.identity, currentVFX.transform);
+    }
+    
     public void RemovePotionEffect(PotionEffects.Effects effects)
     {
         PotionEffects.Effects removedEffects = currentEffects & effects;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2293480499710737918}
   - component: {fileID: 3397950541707043304}
   - component: {fileID: 361119311186320778}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Droplet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,12 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listOfEffects:
-  - {fileID: 11400000, guid: 945fc03d5aab18e44ae26e176f620695, type: 2}
   - {fileID: 11400000, guid: de32924eac8e29a4da56692ebc467336, type: 2}
-  - {fileID: 11400000, guid: 987afc3bda8bede40951a858c5b9fdcc, type: 2}
+  - {fileID: 11400000, guid: 945fc03d5aab18e44ae26e176f620695, type: 2}
   - {fileID: 11400000, guid: 3d494246a5543e749ad9f1a08a30a81f, type: 2}
-  - {fileID: 11400000, guid: 244caabaafdfca24baa5fb08354fb2d9, type: 2}
+  - {fileID: 11400000, guid: 987afc3bda8bede40951a858c5b9fdcc, type: 2}
   - {fileID: 11400000, guid: a5a4b0ad09375e84090d01ba8be53779, type: 2}
+  - {fileID: 11400000, guid: 244caabaafdfca24baa5fb08354fb2d9, type: 2}
 --- !u!135 &8090002365874372464
 SphereCollider:
   m_ObjectHideFlags: 0
