@@ -7,11 +7,17 @@ using UnityEngine;
 public class InvertingStation : MonoBehaviour
 {
     [NonSerialized]
-    public ObjectRoot currentBottle;
+    public ObjectRoot currentBottleRoot;
+    [NonSerialized]
+    public PotionObject currentBottlePotion;
 
+    public ParticleSystem chargingParticle;
+    public ParticleSystem finishParticle;
+
+    private bool inverting;
     private bool inverted;
     private float invertChargeTime;
-    private const float timeUntilCharged = 1f;
+    private const float timeUntilCharged = 3f;
     
     // Start is called before the first frame update
     void Start()
@@ -27,8 +33,14 @@ public class InvertingStation : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (currentBottle && !inverted)
+        if (currentBottleRoot && currentBottlePotion && (!currentBottleRoot.XRGrabInteractable || !currentBottleRoot.XRGrabInteractable.isSelected) 
+            && currentBottlePotion.currentEffects != PotionEffects.Effects.None && !inverted)
         {
+            if (!inverting)
+            {
+                chargingParticle.Play();
+                inverting = true;
+            }
             invertChargeTime += Time.fixedDeltaTime * (1f / timeUntilCharged);
             if (invertChargeTime >= 1f)
             {
@@ -37,38 +49,44 @@ public class InvertingStation : MonoBehaviour
                 inverted = true;
             }
         }
+        else
+        {
+            inverting = false;
+            chargingParticle.Stop();
+        }
     }
 
     public void InvertPotion()
     {
-        if (currentBottle)
+        if (currentBottleRoot && currentBottlePotion)
         {
-            PotionObject potion = currentBottle.GetComponentInChildren<PotionObject>();
-            if (potion)
+            finishParticle.Play();
+            List<PotionEffects> effects = currentBottlePotion.currentEffects.GetScriptableObjects();
+            PotionEffects.Effects newEffects = currentBottlePotion.currentEffects;
+            foreach (var item in effects)
             {
-                List<PotionEffects> effects = potion.currentEffects.GetScriptableObjects();
-                PotionEffects.Effects newEffects = potion.currentEffects;
-                foreach (var item in effects)
-                {
-                    newEffects &= ~item.currentEffect;
-                    newEffects |= item.conflictingEffect;
-                }
-                Debug.Log(newEffects);
-                potion.UpdateCurrentPotion(newEffects);
+                newEffects &= ~item.currentEffect;
+                newEffects |= item.conflictingEffect;
             }
+            currentBottlePotion.UpdateCurrentPotion(newEffects);
         }
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (!currentBottle)
+        if (!currentBottleRoot)
         {
             ObjectRoot root = collider.GetComponentInParent<ObjectRoot>();
             if (root)
             {
                 if (root.smashableIdentifier == "Bottle")
                 {
-                    currentBottle = root;
+                    PotionObject potion = root.GetComponentInChildren<PotionObject>();
+                    if (potion)
+                    {
+                        currentBottleRoot = root;
+                        currentBottlePotion = potion;
+                    }
                 }
             }
         }
@@ -76,12 +94,13 @@ public class InvertingStation : MonoBehaviour
 
     private void OnTriggerExit(Collider collider)
     {
-        if (currentBottle)
+        if (currentBottleRoot)
         {
             ObjectRoot root = collider.GetComponentInParent<ObjectRoot>();
-            if (root && root == currentBottle)
+            if (root && root == currentBottleRoot)
             {
-                currentBottle = null;
+                currentBottleRoot = null;
+                currentBottlePotion = null;
                 inverted = false;
                 invertChargeTime = 0f;
             }

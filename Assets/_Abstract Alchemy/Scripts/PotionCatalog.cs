@@ -6,7 +6,7 @@ public class PotionCatalog : MonoBehaviour
     public static PotionCatalog Instance { get; private set; }
     public PotionEffects[] potionEffects = new PotionEffects[6];
 
-    void Start()
+    void Awake()
     {
         if (Instance)
         {

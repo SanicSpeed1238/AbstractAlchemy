@@ -36,40 +36,32 @@ public class PotionTargetDefault : PotionTargetAbstract
 
         if (effects.HasFlag(PotionEffects.Effects.Light))
         {
-            if (TryGetComponent<XRGrabInteractable>(out var interactor))
+            if (objectRoot.XRGrabInteractable)
             {
-                interactor.throwVelocityScale *= lightMultiplier;
+                objectRoot.XRGrabInteractable.throwVelocityScale *= lightMultiplier;
             }
         }
         if (effects.HasFlag(PotionEffects.Effects.Heavy))
         {
-            if (TryGetComponent<XRGrabInteractable>(out var interactor))
+            if (objectRoot.XRGrabInteractable)
             {
-                interactor.throwVelocityScale *= heavyMultiplier;
+                objectRoot.XRGrabInteractable.throwVelocityScale *= heavyMultiplier;
             }
         }
 
         if (effects.HasFlag(PotionEffects.Effects.Cold))
         {
-            if (TryGetComponent<Collider>(out var collider))
+            if (objectRoot.collider && objectRoot.collider.material)
             {
-                if (collider.material != null)
-                {
-                    PhysicMaterial colliderMat = collider.material;
-                    colliderMat.staticFriction = coldMultiplier;
-                    colliderMat.dynamicFriction = coldMultiplier;
-                }
+                objectRoot.collider.material.staticFriction = coldMultiplier;
+                objectRoot.collider.material.dynamicFriction = coldMultiplier;
             }
         }
         if (effects.HasFlag(PotionEffects.Effects.Hot))
         {
-            if (TryGetComponent<Collider>(out var collider))
+            if (objectRoot.collider && objectRoot.collider.material)
             {
-                if (collider.material != null)
-                {
-                    PhysicMaterial colliderMat = collider.material;
-                    colliderMat.bounciness = hotMultiplier;
-                }
+                objectRoot.collider.material.bounciness = hotMultiplier;
             }
         }
     }
@@ -86,40 +78,32 @@ public class PotionTargetDefault : PotionTargetAbstract
 
         if (effects.HasFlag(PotionEffects.Effects.Light))
         {
-            if (TryGetComponent<XRGrabInteractable>(out var interactor))
+            if (objectRoot.XRGrabInteractable)
             {
-                interactor.throwVelocityScale /= lightMultiplier;
+                objectRoot.XRGrabInteractable.throwVelocityScale /= lightMultiplier;
             }
         }
         if (effects.HasFlag(PotionEffects.Effects.Heavy))
         {
-            if (TryGetComponent<XRGrabInteractable>(out var interactor))
+            if (objectRoot.XRGrabInteractable)
             {
-                interactor.throwVelocityScale /= heavyMultiplier;
+                objectRoot.XRGrabInteractable.throwVelocityScale /= heavyMultiplier;
             }
         }
 
         if (effects.HasFlag(PotionEffects.Effects.Cold))
         {
-            if (TryGetComponent<Collider>(out var collider))
+            if (objectRoot.collider && objectRoot.collider.material)
             {
-                if (collider.material != null)
-                {
-                    PhysicMaterial colliderMat = collider.material;
-                    colliderMat.staticFriction = defaultFrictionValue;
-                    colliderMat.dynamicFriction = defaultFrictionValue;
-                }
+                objectRoot.collider.material.staticFriction = defaultFrictionValue;
+                objectRoot.collider.material.dynamicFriction = defaultFrictionValue;
             }
         }
         if (effects.HasFlag(PotionEffects.Effects.Hot))
         {
-            if (TryGetComponent<Collider>(out var collider))
+            if (objectRoot.collider && objectRoot.collider.material)
             {
-                if (collider.material != null)
-                {
-                    PhysicMaterial colliderMat = collider.material;
-                    colliderMat.bounciness = defaultBouncinessValue;
-                }
+                objectRoot.collider.material.bounciness = defaultBouncinessValue;
             }
         }
     }

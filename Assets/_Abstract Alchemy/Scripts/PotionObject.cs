@@ -4,7 +4,6 @@ public class PotionObject : MonoBehaviour
 {
     [Header("Effects List")]
     public PotionEffects.Effects currentEffects;
-    public PotionEffects[] listOfEffects;
 
     [Header("Important Components")]
     public MeshRenderer liquid;
@@ -16,16 +15,43 @@ public class PotionObject : MonoBehaviour
     private float pourTimer;
     private readonly float pourWaitTime = 1.05f;
 
+    private float fillLevel;
+    public float desiredFillLevel;
+    private const float fillPerSecond = 0.9f;
+    private float fillPerFrame { get { return (1 / fillPerSecond) * Time.deltaTime; } }
+
     private void Start()
     {
         if (!root) { root = GetComponentInParent<ObjectRoot>(); }
+        UpdateCurrentPotion(currentEffects);
+        fillLevel = desiredFillLevel;
         pourTimer = 0f;
     }
 
     private void FixedUpdate()
     {
-        CheckIfUpsideDown();
-        PourLiquid();
+        if (currentEffects != PotionEffects.Effects.None)
+        {
+            CheckIfUpsideDown();
+            PourLiquid();
+        }
+    }
+
+    private void Update()
+    {
+        if (desiredFillLevel != fillLevel)
+        {
+            if (Mathf.Abs(desiredFillLevel - fillLevel) >= fillPerFrame)
+            {
+                fillLevel += fillPerFrame * (fillLevel < desiredFillLevel ? 1f : -1f);
+            }
+            else
+            {
+                fillLevel = desiredFillLevel;
+            }
+            liquid.enabled = fillLevel != 0;
+            liquid.material.SetFloat("_Fill", fillLevel);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -65,10 +91,11 @@ public class PotionObject : MonoBehaviour
     {
         if (newEffect == PotionEffects.Effects.None)
         {
-            liquid.enabled = false;
+            desiredFillLevel = 0f;
         }
         else
         {
+            desiredFillLevel = 0.5f;
             liquid.enabled = true;
             liquid.material.UpdateMaterialWithPotionEffect(newEffect);
         }
@@ -90,11 +117,14 @@ public class PotionObject : MonoBehaviour
             if (pourTimer <= 0f)
             {
                 GameObject pouredDroplet = Instantiate(droplet, transform.position, Quaternion.identity);
-                pouredDroplet.GetComponent<PotionDroplet>().SetDropletEffect(currentEffects);
-
+                PotionDroplet potionDroplet = pouredDroplet.GetComponent<PotionDroplet>();
+                potionDroplet.SetDropletEffect(currentEffects);
+                potionDroplet.sourcePotionObject = this;
                 var renderer = pouredDroplet.GetComponent<Renderer>();
                 renderer.material = new Material(liquid.material);
                 renderer.material.SetFloat("_Fill", 1);
+                Collider dropletCollider = pouredDroplet.GetComponent<Collider>();
+                Physics.IgnoreCollision(dropletCollider, root.collider);
 
                 pourTimer = pourWaitTime + bottleAngle;
             }
