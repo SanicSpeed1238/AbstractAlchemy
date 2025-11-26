@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PotionCatalog : MonoBehaviour
 {
@@ -28,6 +29,18 @@ public class PotionCatalog : MonoBehaviour
         return null;
     }
 
+    public List<PotionEffects> GetScriptableObjectsFromEnum(PotionEffects.Effects effectEnum)
+    {
+        List<PotionEffects> list = new();
+        if (effectEnum.HasFlag(PotionEffects.Effects.Shrink)) { list.Add(PotionEffects.Effects.Shrink.GetScriptableObject()); }
+        if (effectEnum.HasFlag(PotionEffects.Effects.Grow)) { list.Add(PotionEffects.Effects.Grow.GetScriptableObject()); }
+        if (effectEnum.HasFlag(PotionEffects.Effects.Light)) { list.Add(PotionEffects.Effects.Light.GetScriptableObject()); }
+        if (effectEnum.HasFlag(PotionEffects.Effects.Heavy)) { list.Add(PotionEffects.Effects.Heavy.GetScriptableObject()); }
+        if (effectEnum.HasFlag(PotionEffects.Effects.Cold)) { list.Add(PotionEffects.Effects.Cold.GetScriptableObject()); }
+        if (effectEnum.HasFlag(PotionEffects.Effects.Hot)) { list.Add(PotionEffects.Effects.Hot.GetScriptableObject()); }
+        return list;
+    }
+
     public static void ErrorIfNoCatalog()
     {
         if (!PotionCatalog.Instance)
@@ -43,6 +56,12 @@ public static class PotionExtension
     {
         PotionCatalog.ErrorIfNoCatalog();
         return PotionCatalog.Instance.GetScriptableObjectFromEnum(effectEnum);
+    }
+
+    public static List<PotionEffects> GetScriptableObjects(this PotionEffects.Effects effectEnum)
+    {
+        PotionCatalog.ErrorIfNoCatalog();
+        return PotionCatalog.Instance.GetScriptableObjectsFromEnum(effectEnum);
     }
 
     public static void UpdateMaterialWithPotionEffect(this Material material, PotionEffects.Effects effectEnum)

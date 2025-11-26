@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d87f9c6e2fa1160468557f2be64c8844, type: 3}
   m_Name: effectTempCold
   m_EditorClassIdentifier: 
-  currentEffect: 32
-  conflictingEffect: 16
+  currentEffect: 16
+  conflictingEffect: 32
   effectFX: {fileID: 5217137587019547717, guid: 423f73bfac1d64f49a75451407b7bbb6,
     type: 3}
   startFX: {fileID: 5040069205431871437, guid: 867c8751045992c4babf5de37b90dfdb, type: 3}
   liquidColor: {r: 0.14901961, g: 0.3254902, b: 1, a: 0}
-  liquidMaterial: {fileID: 2100000, guid: 54f3c97c8758b2449b7892f7b11e6e69, type: 2}
