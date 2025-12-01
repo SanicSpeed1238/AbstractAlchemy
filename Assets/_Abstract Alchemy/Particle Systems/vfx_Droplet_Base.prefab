@@ -4804,7 +4804,7 @@ GameObject:
   - component: {fileID: 7063168156108114434}
   - component: {fileID: 207596474831313117}
   m_Layer: 0
-  m_Name: vfx_Apply_Base
+  m_Name: vfx_Droplet_Base
   m_TagString: FxTemporaire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
