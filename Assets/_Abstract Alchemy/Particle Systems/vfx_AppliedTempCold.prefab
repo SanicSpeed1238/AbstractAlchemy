@@ -9825,6 +9825,7 @@ GameObject:
   - component: {fileID: 9002527061884924998}
   - component: {fileID: 3103931469352163762}
   - component: {fileID: 6501419480808009303}
+  - component: {fileID: -2496594024895551528}
   m_Layer: 0
   m_Name: vfx_AppliedTempCold
   m_TagString: Untagged
@@ -14505,3 +14506,17 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &-2496594024895551528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5217137587019547717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35805d77d33c6f4abd47255201883a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectTag: 
+  potionEffect: 16

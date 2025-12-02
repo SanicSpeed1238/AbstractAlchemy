@@ -4841,6 +4841,7 @@ GameObject:
   - component: {fileID: 241634647802753286}
   - component: {fileID: 5464946785509702436}
   - component: {fileID: 5374514100968991180}
+  - component: {fileID: -3402258257260586267}
   m_Layer: 0
   m_Name: vfx_AppliedWeightLight
   m_TagString: Untagged
@@ -9661,3 +9662,17 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-3402258257260586267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7338542647873624012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35805d77d33c6f4abd47255201883a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectTag: 
+  potionEffect: 4

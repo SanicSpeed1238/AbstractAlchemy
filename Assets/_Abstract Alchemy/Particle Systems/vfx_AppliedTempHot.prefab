@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2268066134481446948}
   - component: {fileID: 7753833107138275455}
   - component: {fileID: 5753912884251237791}
+  - component: {fileID: -1409499807060643626}
   m_Layer: 0
   m_Name: vfx_AppliedTempHot
   m_TagString: Untagged
@@ -4843,6 +4844,20 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-1409499807060643626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5276631973416703651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35805d77d33c6f4abd47255201883a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectTag: 
+  potionEffect: 32
 --- !u!1 &8277742561505878694
 GameObject:
   m_ObjectHideFlags: 0

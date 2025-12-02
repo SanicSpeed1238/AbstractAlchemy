@@ -17,6 +17,7 @@ public class PotionDroplet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         #region Initial Application of Potion Effect
+
         ObjectRoot objectRoot = collision.gameObject.GetComponentInParent<ObjectRoot>();
         if (objectRoot && objectRoot.potionTarget)
         {
@@ -25,23 +26,23 @@ public class PotionDroplet : MonoBehaviour
                 if (!objectRoot.potionTarget.HasPotionEffect(item.currentEffect))
                 {
                     Instantiate(item.startFX, transform.position, Quaternion.identity);
-                }
-            }
-            if (sourcePotionObject)
-            {
-                sourcePotionObject.UpdateCurrentPotion(PotionEffects.Effects.None);
-            }
-            objectRoot.potionTarget.AddPotionEffect(currentEffects);
+                    if (sourcePotionObject)
+                    {
+                        sourcePotionObject.UpdateCurrentPotion(PotionEffects.Effects.None);
+                    }
+                    objectRoot.potionTarget.AddPotionEffect(currentEffects);
+                }               
+            }     
         }
+
         #endregion
 
         #region Simple Splash VFX
 
         foreach (var item in currentEffects.GetScriptableObjects())
         {
-            Instantiate(item.startFX, transform.position, Quaternion.identity);
+            Instantiate(item.dropletFX, transform.position, Quaternion.identity);
         }
-
         Destroy(gameObject);
 
         #endregion

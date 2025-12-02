@@ -50,11 +50,32 @@ public abstract class PotionTargetAbstract : MonoBehaviour
             OnPotionEffectsChangedEvent?.Invoke(objectRoot);
         }
 
-        for (int vfx = 0; vfx < currentVFX.transform.childCount; vfx++)
+        // VFX Stuff
+        foreach (PotionEffects.Effects singleEffect in Enum.GetValues(typeof(PotionEffects.Effects)))
         {
-            Destroy(currentVFX.transform.GetChild(vfx).gameObject);
+            if (singleEffect == PotionEffects.Effects.None)
+                continue;
+
+            if ((newEffects & singleEffect) != 0)
+            {
+                bool vfxExists = false;
+                for (int i = 0; i < currentVFX.transform.childCount; i++)
+                {
+                    var reference = currentVFX.transform.GetChild(i).GetComponent<SimpleReference>();
+                    if (reference != null && reference.potionEffect == singleEffect)
+                    {
+                        vfxExists = true;
+                        break;
+                    }
+                }
+
+                if (!vfxExists)
+                {
+                    var vfxPrefab = singleEffect.GetScriptableObject().effectFX;
+                    if (vfxPrefab != null) Instantiate(vfxPrefab, objectRoot.transform.position, Quaternion.identity, currentVFX.transform);
+                }
+            }
         }
-        Instantiate(effects.GetScriptableObject().effectFX, objectRoot.transform.position, Quaternion.identity, currentVFX.transform);
     }
     
     public void RemovePotionEffect(PotionEffects.Effects effects)
@@ -66,6 +87,17 @@ public abstract class PotionTargetAbstract : MonoBehaviour
         {
             OnPotionEffectsRemoved(removedEffects);
             OnPotionEffectsChangedEvent?.Invoke(objectRoot);
+        }
+
+        // VFX Stuff
+        for (int vfx = currentVFX.transform.childCount - 1; vfx >= 0; vfx--)
+        {
+            Transform vfxObject = currentVFX.transform.GetChild(vfx);
+            if (vfxObject.TryGetComponent<SimpleReference>(out var currentVFXObject))
+            {
+                if (currentVFXObject.potionEffect == effects)
+                    Destroy(vfxObject.gameObject);
+            }
         }
     }
 

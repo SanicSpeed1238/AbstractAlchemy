@@ -4853,6 +4853,7 @@ GameObject:
   - component: {fileID: 229263457342781482}
   - component: {fileID: 149042606970994088}
   - component: {fileID: 7724216947476627079}
+  - component: {fileID: 8562112208112048503}
   m_Layer: 0
   m_Name: vfx_AppliedSizeShrink
   m_TagString: Untagged
@@ -9685,3 +9686,17 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &8562112208112048503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653800302634091544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35805d77d33c6f4abd47255201883a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectTag: 
+  potionEffect: 1

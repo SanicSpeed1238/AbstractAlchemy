@@ -16,5 +16,7 @@ MonoBehaviour:
   conflictingEffect: 32
   effectFX: {fileID: 5217137587019547717, guid: 423f73bfac1d64f49a75451407b7bbb6,
     type: 3}
-  startFX: {fileID: 5040069205431871437, guid: 867c8751045992c4babf5de37b90dfdb, type: 3}
+  startFX: {fileID: 4347117690596945484, guid: 8cbe207e3ca797c4a86dad7e4e7ab30d, type: 3}
+  dropletFX: {fileID: 5040069205431871437, guid: 867c8751045992c4babf5de37b90dfdb,
+    type: 3}
   liquidColor: {r: 0.14901961, g: 0.3254902, b: 1, a: 0}
