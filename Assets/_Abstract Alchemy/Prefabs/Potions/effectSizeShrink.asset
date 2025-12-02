@@ -19,4 +19,4 @@ MonoBehaviour:
   startFX: {fileID: 4010565595487560568, guid: 1c5b8e255ce05184c838f63b59a19631, type: 3}
   dropletFX: {fileID: 8353343010974646987, guid: 391e8df6d2be76847861bb1e44c9811e,
     type: 3}
-  liquidColor: {r: 1, g: 0, b: 0.16862746, a: 0}
+  liquidColor: {r: 1, g: 0.2688679, b: 0.52142, a: 0}

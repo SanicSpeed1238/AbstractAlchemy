@@ -18,9 +18,16 @@ public abstract class PotionTargetAbstract : MonoBehaviour
     {
         if (!objectRoot) { objectRoot = GetComponent<ObjectRoot>(); }
 
-        currentVFX = new GameObject("VFX");
-        currentVFX.transform.parent = objectRoot.transform;
-        currentVFX.transform.localScale *= scaleVFX;
+        CreateVFXObject();
+    }
+    private void CreateVFXObject()
+    {
+        if (!currentVFX)
+        {
+            currentVFX = new GameObject("VFX");
+            currentVFX.transform.parent = objectRoot.transform;
+            currentVFX.transform.localScale *= scaleVFX;
+        }
     }
     public PotionEffects.Effects GetPotionEffects()
     {
@@ -31,16 +38,19 @@ public abstract class PotionTargetAbstract : MonoBehaviour
         return currentEffects.HasFlag(effects);
     }
 
-    public void AddPotionEffect(PotionEffects effects)
-    {
-        if (effects.conflictingEffect != PotionEffects.Effects.None && HasPotionEffect(effects.conflictingEffect))
-        {
-            RemovePotionEffect(effects.conflictingEffect);
-        }
-        AddPotionEffect(effects.currentEffect);
-    }
     public void AddPotionEffect(PotionEffects.Effects effects)
     {
+        PotionEffects.Effects effectsToRemove = PotionEffects.Effects.None;
+        foreach (var item in effects.GetScriptableObjects())
+        {
+            if (HasPotionEffect(item.conflictingEffect))
+            {
+                effectsToRemove |= item.conflictingEffect;
+            }
+
+        }
+        if (effectsToRemove != PotionEffects.Effects.None) { RemovePotionEffect(effectsToRemove); }
+
         PotionEffects.Effects newEffects = effects &~ currentEffects;
         currentEffects |= effects;
 
@@ -51,6 +61,7 @@ public abstract class PotionTargetAbstract : MonoBehaviour
         }
 
         // VFX Stuff
+        CreateVFXObject();
         foreach (PotionEffects.Effects singleEffect in Enum.GetValues(typeof(PotionEffects.Effects)))
         {
             if (singleEffect == PotionEffects.Effects.None)
@@ -90,13 +101,16 @@ public abstract class PotionTargetAbstract : MonoBehaviour
         }
 
         // VFX Stuff
-        for (int vfx = currentVFX.transform.childCount - 1; vfx >= 0; vfx--)
+        if (currentVFX)
         {
-            Transform vfxObject = currentVFX.transform.GetChild(vfx);
-            if (vfxObject.TryGetComponent<SimpleReference>(out var currentVFXObject))
+            for (int vfx = currentVFX.transform.childCount - 1; vfx >= 0; vfx--)
             {
-                if (currentVFXObject.potionEffect == effects)
-                    Destroy(vfxObject.gameObject);
+                Transform vfxObject = currentVFX.transform.GetChild(vfx);
+                if (vfxObject.TryGetComponent<SimpleReference>(out var currentVFXObject))
+                {
+                    if (currentVFXObject.potionEffect == effects)
+                        Destroy(vfxObject.gameObject);
+                }
             }
         }
     }
