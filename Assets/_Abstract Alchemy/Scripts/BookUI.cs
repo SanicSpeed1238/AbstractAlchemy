@@ -12,12 +12,12 @@ public class BookUI : MonoBehaviour
     public Button prevButton;
 
     [Header("Page Content")]
-    public Sprite[] imagePages;        // All pages that are images
+    public Sprite[] imagePages;        
     [TextArea(3, 10)]
-    public string finalTextPage;       // Last page = text
+    public string finalTextPage;      
 
-    private int currentPage = 0;        // 0..(imagePages.Length) 
-                                        // Last page = text at index = imagePages.Length
+    private int currentPage = 0;       
+                                        
 
     void Start()
     {
@@ -47,28 +47,28 @@ public class BookUI : MonoBehaviour
 
     void UpdatePage()
     {
-        // If we're still in the image range
+        
         if (currentPage < imagePages.Length)
         {
-            // Show image page
+            
             pageImage.gameObject.SetActive(true);
             pageText.gameObject.SetActive(false);
 
             pageImage.sprite = imagePages[currentPage];
 
             prevButton.interactable = currentPage > 0;
-            nextButton.interactable = true;  // can go forward until final page
+            nextButton.interactable = true;  
         }
         else
         {
-            // Final page = TEXT
+            
             pageImage.gameObject.SetActive(false);
             pageText.gameObject.SetActive(true);
 
             pageText.text = finalTextPage;
 
             prevButton.interactable = true;
-            nextButton.interactable = false; // No page after final text page
+            nextButton.interactable = false; 
         }
     }
 }
