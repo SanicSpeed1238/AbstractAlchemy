@@ -67,21 +67,21 @@ public class PotionObject : MonoBehaviour
                         Explode();
                         return;
                     }*/
-                    UpdateCurrentPotion(PotionEffects.Effects.Grow); Destroy(objRoot.gameObject); break;
+                    UpdateCurrentPotion(PotionEffects.Effects.Shrink); Destroy(objRoot.gameObject); break;
                 case "Processed Yellow Ingredient":
                     /*if (currentEffects != PotionEffects.Effects.None)
                     {
                         Explode();
                         return;
                     }*/
-                    UpdateCurrentPotion(PotionEffects.Effects.Heavy); Destroy(objRoot.gameObject); break;
+                    UpdateCurrentPotion(PotionEffects.Effects.Light); Destroy(objRoot.gameObject); break;
                 case "Processed Blue Ingredient":
                     /*if (currentEffects != PotionEffects.Effects.None)
                     {
                         Explode();
                         return;
                     }*/
-                    UpdateCurrentPotion(PotionEffects.Effects.Hot); Destroy(objRoot.gameObject); break;
+                    UpdateCurrentPotion(PotionEffects.Effects.Cold); Destroy(objRoot.gameObject); break;
                 default: break;
             }
         }

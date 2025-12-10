@@ -4,11 +4,18 @@ using UnityEngine;
 public class PotionDroplet : MonoBehaviour
 {
     private PotionEffects.Effects currentEffects;
-    public PotionEffects[] listOfEffects;
-
     [NonSerialized]
     public PotionObject sourcePotionObject;
+    private float defaultScale;
 
+    public Rigidbody rigidBody;
+    public Vector3 maxStretchSizeMult;
+    public float maxStretchVelocity;
+
+    private void Start()
+    {
+        defaultScale = transform.localScale.x;
+    }
     public void SetDropletEffect(PotionEffects.Effects effect)
     {
         currentEffects = effect;
@@ -46,5 +53,10 @@ public class PotionDroplet : MonoBehaviour
         Destroy(gameObject);
 
         #endregion
+    }
+
+    private void Update()
+    {
+        transform.localScale = Vector3.Lerp(Vector3.one * defaultScale, defaultScale * maxStretchSizeMult, rigidBody.velocity.magnitude / maxStretchVelocity);
     }
 }

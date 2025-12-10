@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7421121409891545728}
-  - component: {fileID: 6325657851054436038}
   - component: {fileID: 8090002365874372464}
   - component: {fileID: 2293480499710737918}
   - component: {fileID: 3397950541707043304}
   - component: {fileID: 361119311186320778}
+  - component: {fileID: 1794497556140176744}
   m_Layer: 4
-  m_Name: Droplet
+  m_Name: CleanserDroplet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,21 +36,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6325657851054436038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5542969640769285685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea5f23e5f18ffaf479fc105c0c9df215, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidBody: {fileID: 2293480499710737918}
-  maxStretchSizeMult: {x: 0.5, y: 4, z: 0.5}
-  maxStretchVelocity: 5
 --- !u!135 &8090002365874372464
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -149,3 +134,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5542969640769285685}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1794497556140176744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5542969640769285685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff0828c19704c024eb7ba3c3ce5f9266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 2293480499710737918}
+  maxStretchSizeMult: {x: 0.5, y: 4, z: 0.5}
+  maxStretchVelocity: 5
+  applyEffect: {fileID: 2593526170214316913, guid: f9c535d3cdf82b34993431f18fc87873,
+    type: 3}
+  dropletEffect: {fileID: 1083554012801803302, guid: a204850be90cb124889698a7c10ca007,
+    type: 3}
