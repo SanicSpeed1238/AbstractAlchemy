@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class Mallet : MonoBehaviour
 {
-    public new Collider collider;
+    public Collider hitCollider;
     public RecipeObjectConversion[] recipes;
+
     void Awake()
     {
-        if (!collider) { collider = GetComponent<Collider>(); }
+        if (!hitCollider) { hitCollider = GetComponent<Collider>(); }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -34,8 +35,7 @@ public class Mallet : MonoBehaviour
         Collider outputCollider = RecipeObjectConversion.ConvertObjectToOtherObject(root, recipe.outputPrefab, recipe.vfxPrefab, root.transform.position, Quaternion.identity).GetComponentInChildren<Collider>();
         if (outputCollider)
         {
-            Physics.IgnoreCollision(outputCollider, this.collider);
+            Physics.IgnoreCollision(outputCollider, this.hitCollider);
         }
-
     }
 }

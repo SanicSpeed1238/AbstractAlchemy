@@ -101,7 +101,7 @@ public class PotionTargetSword : PotionTargetAbstract
                 objectRoot.XRGrabInteractable.throwVelocityScale /= heavyMultiplier;
             }
         }
-        if (!effects.HasFlag(PotionEffects.Effects.Light) && !effects.HasFlag(PotionEffects.Effects.Heavy))
+        if (!currentEffects.HasFlag(PotionEffects.Effects.Light) && !currentEffects.HasFlag(PotionEffects.Effects.Heavy))
         {
             SetNewSword(regularSword);
         }
