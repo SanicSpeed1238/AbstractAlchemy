@@ -82,7 +82,11 @@ public abstract class PotionTargetAbstract : MonoBehaviour
                 if (!vfxExists)
                 {
                     var vfxPrefab = singleEffect.GetScriptableObject().effectFX;
-                    if (vfxPrefab != null) Instantiate(vfxPrefab, objectRoot.transform.position, Quaternion.identity, currentVFX.transform);
+                    if (vfxPrefab != null)
+                    {
+                        GameObject newVFX = Instantiate(vfxPrefab, objectRoot.transform.position, Quaternion.identity, currentVFX.transform);
+                        newVFX.transform.localPosition = Vector3.zero;
+                    }
                 }
             }
         }

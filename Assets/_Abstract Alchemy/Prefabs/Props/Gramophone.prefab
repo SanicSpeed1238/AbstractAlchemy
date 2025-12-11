@@ -229,7 +229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectRoot: {fileID: 976127338270243518}
-  scaleVFX: 0.4
+  currentVFX: {fileID: 0}
+  scaleVFX: 0.6
   currentEffects: 0
   shrinkMultiplier: 0.5
   growMultiplier: 2
@@ -261,7 +262,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 300
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

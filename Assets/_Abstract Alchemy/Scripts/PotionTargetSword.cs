@@ -138,6 +138,6 @@ public class PotionTargetSword : PotionTargetAbstract
         objectRoot.renderer = newSword.GetComponent<MeshRenderer>();
         objectRoot.XRGrabInteractable = newSword.GetComponent<XRGrabInteractable>();
 
-        currentVFX.transform.parent = swordObject.transform;
+        currentVFX.transform.parent = newSword.transform;
     }
 }
