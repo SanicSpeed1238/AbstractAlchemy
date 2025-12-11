@@ -9639,6 +9639,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5518490787954222588, guid: 6caa04ff2de9a4345ac199c91867a12c,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 7041708244813918110, guid: 6caa04ff2de9a4345ac199c91867a12c,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

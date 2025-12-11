@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
 public class PotionTargetSword : PotionTargetAbstract
 {
@@ -15,7 +14,6 @@ public class PotionTargetSword : PotionTargetAbstract
     [Range(0.1f, 1f)]
     public float heavyMultiplier = 0.5f;
 
-    private GameObject swordObject;
     public GameObject regularSword;
     public GameObject lightSword;
     public GameObject heavySword;
@@ -31,7 +29,7 @@ public class PotionTargetSword : PotionTargetAbstract
     public override void Start()
     {    
         base.Start();
-        swordObject = objectRoot.transform.Find("SwordObject").gameObject;
+        SetNewSword(regularSword);
     }
 
     protected override void OnPotionEffectsAdded(PotionEffects.Effects effects)
@@ -50,8 +48,7 @@ public class PotionTargetSword : PotionTargetAbstract
             if (objectRoot.XRGrabInteractable)
             {
                 objectRoot.XRGrabInteractable.throwVelocityScale *= lightMultiplier;
-                Destroy(swordObject.transform.GetChild(0).gameObject);
-                SpawnNewSword(lightSword);
+                SetNewSword(lightSword);
             }
         }
         if (effects.HasFlag(PotionEffects.Effects.Heavy))
@@ -59,8 +56,7 @@ public class PotionTargetSword : PotionTargetAbstract
             if (objectRoot.XRGrabInteractable)
             {
                 objectRoot.XRGrabInteractable.throwVelocityScale *= heavyMultiplier;
-                Destroy(swordObject.transform.GetChild(0).gameObject);
-                SpawnNewSword(heavySword);
+                SetNewSword(heavySword);
             }
         }
 
@@ -96,7 +92,6 @@ public class PotionTargetSword : PotionTargetAbstract
             if (objectRoot.XRGrabInteractable)
             {
                 objectRoot.XRGrabInteractable.throwVelocityScale /= lightMultiplier;
-                Destroy(swordObject.transform.GetChild(0).gameObject);
             }
         }
         if (effects.HasFlag(PotionEffects.Effects.Heavy))
@@ -104,12 +99,11 @@ public class PotionTargetSword : PotionTargetAbstract
             if (objectRoot.XRGrabInteractable)
             {
                 objectRoot.XRGrabInteractable.throwVelocityScale /= heavyMultiplier;
-                Destroy(swordObject.transform.GetChild(0).gameObject);
             }
         }
         if (!effects.HasFlag(PotionEffects.Effects.Light) && !effects.HasFlag(PotionEffects.Effects.Heavy))
         {
-            SpawnNewSword(regularSword);
+            SetNewSword(regularSword);
         }
 
         if (effects.HasFlag(PotionEffects.Effects.Cold))
@@ -129,15 +123,17 @@ public class PotionTargetSword : PotionTargetAbstract
         }
     }
 
-    private void SpawnNewSword(GameObject swordType)
+    private void SetNewSword(GameObject swordType)
     {
-        GameObject newSword = Instantiate(swordType, objectRoot.transform.position, Quaternion.identity, swordObject.transform);
+        if (regularSword == swordType) regularSword.SetActive(true);
+        else regularSword.SetActive(false);
+        if (lightSword == swordType) lightSword.SetActive(true);
+        else lightSword.SetActive(false);
+        if (heavySword == swordType) heavySword.SetActive(true);
+        else heavySword.SetActive(false);
 
-        objectRoot.rigidBody = newSword.GetComponent<Rigidbody>();
+        GameObject newSword = swordType;
         objectRoot.collider = newSword.GetComponent<MeshCollider>();
         objectRoot.renderer = newSword.GetComponent<MeshRenderer>();
-        objectRoot.XRGrabInteractable = newSword.GetComponent<XRGrabInteractable>();
-
-        currentVFX.transform.parent = newSword.transform;
     }
 }

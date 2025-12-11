@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class InvertingStation : MonoBehaviour
@@ -12,24 +10,14 @@ public class InvertingStation : MonoBehaviour
     public PotionObject currentBottlePotion;
 
     public ParticleSystem chargingParticle;
+    public AudioSource chargingSound;
     public ParticleSystem finishParticle;
+    public AudioSource finishSound;
 
     private bool inverting;
     private bool inverted;
     private float invertChargeTime;
     private const float timeUntilCharged = 3f;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void FixedUpdate()
     {
@@ -39,6 +27,7 @@ public class InvertingStation : MonoBehaviour
             if (!inverting)
             {
                 chargingParticle.Play();
+                chargingSound.Play();
                 inverting = true;
             }
             invertChargeTime += Time.fixedDeltaTime * (1f / timeUntilCharged);
@@ -61,6 +50,7 @@ public class InvertingStation : MonoBehaviour
         if (currentBottleRoot && currentBottlePotion)
         {
             finishParticle.Play();
+            finishSound.Play();
             List<PotionEffects> effects = currentBottlePotion.currentEffects.GetScriptableObjects();
             PotionEffects.Effects newEffects = currentBottlePotion.currentEffects;
             foreach (var item in effects)

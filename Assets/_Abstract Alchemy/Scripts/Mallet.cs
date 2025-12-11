@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Mallet : MonoBehaviour
@@ -11,12 +7,6 @@ public class Mallet : MonoBehaviour
     void Awake()
     {
         if (!collider) { collider = GetComponent<Collider>(); }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnCollisionEnter(Collision collision)
