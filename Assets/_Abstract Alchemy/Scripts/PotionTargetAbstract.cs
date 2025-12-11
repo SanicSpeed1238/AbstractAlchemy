@@ -1,15 +1,14 @@
 using System;
 using UnityEngine;
+using static PotionEffects;
 
 public abstract class PotionTargetAbstract : MonoBehaviour
 {
     [Header("Basic Properties")]
-
     public ObjectRoot objectRoot;
-
+    public GameObject currentVFX;
     [Range(0.01f, 2f)]
-    public float scaleVFX = 1f;
-    private GameObject currentVFX;
+    public float scaleVFX = 1f; 
 
     public PotionEffects.Effects currentEffects;
     public Action<ObjectRoot> OnPotionEffectsChangedEvent;
@@ -124,6 +123,14 @@ public abstract class PotionTargetAbstract : MonoBehaviour
     public void ClearPotionEffects()
     {
         RemovePotionEffect((PotionEffects.Effects)~0);
+
+        if (currentVFX)
+        {
+            for (int i = currentVFX.transform.childCount - 1; i >= 0; i--)
+            {
+                Destroy(currentVFX.transform.GetChild(i).gameObject);
+            }
+        }
     }  
 
     protected abstract void OnPotionEffectsAdded(PotionEffects.Effects effects);

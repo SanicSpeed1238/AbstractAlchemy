@@ -1,18 +1,12 @@
-﻿using System.Runtime.CompilerServices;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Apply forward force to instantiated prefab
+/// Launch projectile by directly setting its velocity.
 /// </summary>
 public class LaunchProjectile : MonoBehaviour
 {
-    [Tooltip("The projectile that's created")]
-    public GameObject projectilePrefab = null;
-
-    [Tooltip("The point that the project is created")]
-    public Transform startPoint = null;
-
-    [Tooltip("The speed at which the projectile is launched")]
+    public GameObject projectilePrefab;
+    public Transform startPoint;
     public float launchSpeed = 1.0f;
 
     public void Fire()
@@ -20,12 +14,11 @@ public class LaunchProjectile : MonoBehaviour
         GameObject newObject = Instantiate(projectilePrefab, startPoint.position, startPoint.rotation);
 
         if (newObject.TryGetComponent(out Rigidbody rigidBody))
-            ApplyForce(rigidBody);
+            Launch(rigidBody);
     }
 
-    private void ApplyForce(Rigidbody rigidBody)
+    private void Launch(Rigidbody rigidBody)
     {
-        Vector3 force = startPoint.forward * launchSpeed;
-        rigidBody.AddForce(force);
+        rigidBody.velocity = startPoint.forward * launchSpeed;
     }
 }

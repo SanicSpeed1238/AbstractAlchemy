@@ -119,7 +119,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _HdrBoost: 1
-    - _HdrMultiply: 100
+    - _HdrMultiply: 120
     - _IndirectLightingMix: 0.5
     - _InvertDissolveTex: 0
     - _LightingWorldPosStrength: 0.2
