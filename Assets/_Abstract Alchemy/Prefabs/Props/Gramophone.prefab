@@ -238,8 +238,8 @@ MonoBehaviour:
   heavyMultiplier: 0.5
   coldMultiplier: 0.2
   hotMultiplier: 0.5
-  normalAudio: {fileID: 8300000, guid: e2c75e47feeacd5408309a923c23cc87, type: 3}
-  coldAudio: {fileID: 8300000, guid: 8d2eee0c9b1b78f4a880d6f60a67560e, type: 3}
+  normalAudio: {fileID: 8300000, guid: af00b23bbf7aaf44983d793148a004d8, type: 3}
+  coldAudio: {fileID: 8300000, guid: daec37f7322ba53459cebad4ffe77fbb, type: 3}
   fireAudio: {fileID: 8300000, guid: 818663b30a2129c44a3320fe3ce58e0e, type: 3}
 --- !u!82 &6127224181703865659
 AudioSource:
@@ -251,7 +251,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e2c75e47feeacd5408309a923c23cc87, type: 3}
+  m_audioClip: {fileID: 8300000, guid: af00b23bbf7aaf44983d793148a004d8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

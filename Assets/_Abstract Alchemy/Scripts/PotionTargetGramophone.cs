@@ -129,7 +129,7 @@ public class PotionTargetGramophone : PotionTargetAbstract
                 objectRoot.collider.material.bounciness = defaultBouncinessValue;
             }
         }
-        if (!effects.HasFlag(PotionEffects.Effects.Cold) && !effects.HasFlag(PotionEffects.Effects.Hot))
+        if (!currentEffects.HasFlag(PotionEffects.Effects.Cold) && !currentEffects.HasFlag(PotionEffects.Effects.Hot))
         {
             PlayNewMusic(normalAudio);
         }      

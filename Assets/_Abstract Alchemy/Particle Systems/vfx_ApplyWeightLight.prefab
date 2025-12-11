@@ -66,13 +66,18 @@ PrefabInstance:
     - target: {fileID: 2069630220129446751, guid: ab11d118ac6a09f43b0f56280eecb450,
         type: 3}
       propertyPath: m_Name
-      value: vfx_Apply_Base Variant
+      value: vfx_ApplyWeightLight
       objectReference: {fileID: 0}
     - target: {fileID: 2306559005317805384, guid: ab11d118ac6a09f43b0f56280eecb450,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3001457311390928019, guid: ab11d118ac6a09f43b0f56280eecb450,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d1afd3f4d23c24f418ffc315afb04965, type: 3}
     - target: {fileID: 3082200590048332790, guid: ab11d118ac6a09f43b0f56280eecb450,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b

@@ -25,6 +25,7 @@ public abstract class PotionTargetAbstract : MonoBehaviour
         {
             currentVFX = new GameObject("VFX");
             currentVFX.transform.parent = objectRoot.transform;
+            currentVFX.transform.localPosition = Vector3.zero;
             currentVFX.transform.localScale *= scaleVFX;
         }
     }

@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1181030608609351514}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.07, y: -0.07, z: -0.17}
+  m_LocalPosition: {x: -0.07, y: 0.05, z: -0.17}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4860,7 +4860,7 @@ Transform:
   m_GameObject: {fileID: 2679292651392245646}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5194,8 +5194,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.2
+      scalar: 0.25
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5518,7 +5518,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5658,7 +5658,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.5
+      value: 0.14
       mode: 0
       spread: 0
       speed:
@@ -6486,8 +6486,8 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 3
+      scalar: 2
+      minScalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9680,13 +9680,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7041708244813918110, guid: 6caa04ff2de9a4345ac199c91867a12c,
         type: 3}
+      propertyPath: ShapeModule.m_Position.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7041708244813918110, guid: 6caa04ff2de9a4345ac199c91867a12c,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 7041708244813918110, guid: 6caa04ff2de9a4345ac199c91867a12c,
+        type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7041708244813918110, guid: 6caa04ff2de9a4345ac199c91867a12c,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.89455295
+      value: 0.9019608
       objectReference: {fileID: 0}
     - target: {fileID: 7041708244813918110, guid: 6caa04ff2de9a4345ac199c91867a12c,
         type: 3}
